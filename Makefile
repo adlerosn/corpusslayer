@@ -52,6 +52,7 @@ deploy-ci:
 	-sudo mkdir -p /var/www/corpusslayer
 	-sudo rsync -a ./ /var/www/corpusslayer/
 	sudo install ./server_deploy_config/corpusslayer.service /etc/systemd/system
+	sudo install ./server_deploy_config/the-corpusslayer-com-http.conf /etc/nginx/sites-available
 	sudo install ./server_deploy_config/corpusslayer-com-http.conf /etc/nginx/sites-available
 	sudo systemctl daemon-reload
 	sudo systemctl enable corpusslayer.service
