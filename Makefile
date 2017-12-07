@@ -66,4 +66,7 @@ deploy-ci:
 	sudo systemctl reload nginx.service
 
 serve:
+	uwsgi --http :14548 --stats :14549 --stats-http --module corpusslayer.wsgi --master --enable-threads --threads 64
+
+serve-ini:
 	uwsgi --ini uwsgi.ini
