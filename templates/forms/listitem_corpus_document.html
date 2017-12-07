@@ -1,0 +1,11 @@
+{% load i18n %}
+<strong>
+    {{ item.title }}:
+</strong>
+<span>
+    {{ item.text|length }} {% trans "chars" %}
+</span>
+<br>
+<span class="text-muted">
+    {{ item.source }}
+</span>

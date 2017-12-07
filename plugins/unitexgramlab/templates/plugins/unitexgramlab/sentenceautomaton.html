@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load url_tools %}
+{% load request_tools %}
+
+{% block title %}
+{% with request|tocorpus as corpus %}
+{% trans "Sentence Automata" %} | Unitex/GramLab | {{ corpus.title }} | {{ block.super }}
+{% endwith %}
+{% endblock title %}
+
+{% block content %}
+{% with request|tocorpus as corpus %}
+<h3>
+    {% trans "Sentence Automata" %}
+    <small class="text-muted">
+        -
+        <a class="badge badge-pill badge-light text-muted" href="{% url 'corpus' corpus.pk %}">
+            {{ corpus.title }}
+        </a>
+    </small>
+</h3>
+<br>
+{% if sentences %}
+<ol>
+    {% for sentence in sentences %}
+    <li>
+        <div>
+            <div>
+                {% with sentence.sentenca|tojsonb64 as sentence_data %}
+                <a class="badge badge-light" href="{% url 'base_find_fragment' corpus.pk sentence_data %}"><i class="fa fa-reply" aria-hidden="true"></i></a>
+                {% endwith %}
+                {{ sentence.sentenca }}
+            </div>
+            <div style="overflow-x: scroll;">
+                <span class="badge badge-dark">
+                    {% for item in sentence.componentes %}
+                    <span class="badge badge-pill badge-light">
+                        <span style="font-family: monospace;">
+                            {{ item }}
+                        </span>
+                    </span>
+                    {% endfor %}
+                </span>
+            </div>
+            <div>
+                <table class="table">
+                    <tbody>
+                        {% for palavra in sentence.grafoLinear %}
+                        <tr>
+                            <td>
+                                <table class='table'>
+                                    <tbody>
+                                        {% for tag in palavra.1 %}
+                                        <tr>
+                                            <td>
+                                                <code>{{ tag.texto }}</code>
+                                            </td>
+                                            <td>
+                                                <pre>{{ tag.lema }}</pre>
+                                            </td>
+                                            <td>
+                                                {% for item in tag.gramSem %}
+                                                <div>
+                                                    <span class="badge badge-light">
+                                                        {{ item }}
+                                                    </span>
+                                                </div>
+                                                {% endfor %}
+                                            </td>
+                                            <td>
+                                                {% for possibility in tag.flex %}
+                                                <div>
+                                                    <span class="badge badge-dark">
+                                                        {% for item in possibility %}
+                                                        <span class="badge badge-pill badge-light">
+                                                            <span style="font-family: monospace;">
+                                                                {{ item }}
+                                                            </span>
+                                                        </span>
+                                                        {% endfor %}
+                                                    </span>
+                                                </div>
+                                                {% endfor %}
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='text-center'>
+                                {% if palavra.2 %}
+                                <i class="fa fa-2x fa-circle" aria-hidden="true"></i>
+                                {% else %}
+                                <i class="fa fa-2x fa-arrow-down" aria-hidden="true"></i>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </li>
+    {% endfor %}
+</ol>
+{% else %}
+<i class="text-muted">
+    {% trans "Empty" %}
+</i>
+{% endif %}
+{% endwith %}
+{% endblock content %}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load url_tools %}
+{% load request_tools %}
+
+{% block title %}
+{% with request|tocorpus as corpus %}
+{% trans "Analysis" %} | {{ corpus.title }} | {{ block.super }}
+{% endwith %}
+{% endblock title %}
+
+{% block content %}
+{% with request|tocorpus as corpus %}
+<h3>
+    {% trans "Analysis" %}
+    <small class="text-muted">
+        -
+        <a class="badge badge-pill badge-light text-muted" href="{% url 'corpus' corpus.pk %}">
+            {{ corpus.title }}
+        </a>
+    </small>
+</h3>
+<br>
+{% for tool in tools %}
+<div class="mt-1">
+    <a class="btn-block text-left btn btn-{{ tool.color }}" href="{% url tool.link corpus_pk %}">
+        <i class="fa fa-{{ tool.icon }}" aria-hidden="true"></i>
+        {{ tool.text }}
+    </a>
+</div>
+{% endfor %}
+{% endwith %}
+{% endblock content %}

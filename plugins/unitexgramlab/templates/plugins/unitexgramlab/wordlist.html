@@ -1,0 +1,183 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load url_tools %}
+{% load request_tools %}
+
+{% block title %}
+{% with request|tocorpus as corpus %}
+{% trans "Process Corpus" %} | Unitex/GramLab | {{ corpus.title }} | {{ block.super }}
+{% endwith %}
+{% endblock title %}
+
+{% block content %}
+{% with request|tocorpus as corpus %}
+<h3>
+    {% trans "Word List" %}
+    <small class="text-muted">
+        -
+        <a class="badge badge-pill badge-light text-muted" href="{% url 'corpus' corpus.pk %}">
+            {{ corpus.title }}
+        </a>
+    </small>
+</h3>
+<br>
+{% if naoReconhecido %}
+<table class='table'>
+    <thead class='thead-dark'>
+        <tr>
+            <th>
+                {% trans "Unrecognized Token" %}
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                {% for word in naoReconhecido %}
+                {% with word|tojsonb64 as sentence_data %}
+                <a class="badge badge-light" href="{% url 'base_find_fragment' corpus.pk sentence_data %}">
+                    <code>
+                        {{ word }}
+                    </code>
+                </a>
+                {% endwith %}
+                {% endfor %}
+            </td>
+        </tr>
+    </tbody>
+</table>
+{% else %}
+<i class="text-muted">
+    {% trans "No unrecognized word" %}
+</i>
+{% endif %}
+<br>
+{% if composto %}
+<table class='table'>
+    <thead class='thead-dark'>
+        <tr>
+            <th>
+                {% trans "Composite Word" %}
+            </th>
+            <th>
+                {% trans "Lemma" %}
+            </th>
+            <th>
+                {% trans "Grammar &amp; Semantics" %}
+            </th>
+            <th>
+                {% trans "Inflections" %}
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for word in composto %}
+        <tr>
+            <td>
+                {% with word.texto|tojsonb64 as sentence_data %}
+                <a class="badge badge-light" href="{% url 'base_find_fragment' corpus.pk sentence_data %}"><i class="fa fa-reply" aria-hidden="true"></i></a>
+                {% endwith %}
+                <code>{{ word.texto }}</code>
+            </td>
+            <td>
+                <pre>{{ word.lema }}</pre>
+            </td>
+            <td>
+                {% for item in word.gramSem %}
+                <div>
+                    <span class="badge badge-light">
+                        {{ item }}
+                    </span>
+                </div>
+                {% endfor %}
+            </td>
+            <td>
+                {% for possibility in word.flex %}
+                <div>
+                    <span class="badge badge-dark">
+                        {% for item in possibility %}
+                        <span class="badge badge-pill badge-light">
+                            <span style="font-family: monospace;">
+                                {{ item }}
+                            </span>
+                        </span>
+                        {% endfor %}
+                    </span>
+                </div>
+                {% endfor %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<i class="text-muted">
+    {% trans "No composite word" %}
+</i>
+{% endif %}
+<br>
+{% if simples %}
+<table class='table'>
+    <thead class='thead-dark'>
+        <tr>
+            <th>
+                {% trans "Simple Word" %}
+            </th>
+            <th>
+                {% trans "Lemma" %}
+            </th>
+            <th>
+                {% trans "Grammar &amp; Semantics" %}
+            </th>
+            <th>
+                {% trans "Inflections" %}
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for word in simples %}
+        <tr>
+            <td>
+                {% with word.texto|tojsonb64 as sentence_data %}
+                <a class="badge badge-light" href="{% url 'base_find_fragment' corpus.pk sentence_data %}"><i class="fa fa-reply" aria-hidden="true"></i></a>
+                {% endwith %}
+                <code>{{ word.texto }}</code>
+            </td>
+            <td>
+                <pre>{{ word.lema }}</pre>
+            </td>
+            <td>
+                {% for item in word.gramSem %}
+                <div>
+                    <span class="badge badge-light">
+                        {{ item }}
+                    </span>
+                </div>
+                {% endfor %}
+            </td>
+            <td>
+                {% for possibility in word.flex %}
+                <div>
+                    <span class="badge badge-dark">
+                        {% for item in possibility %}
+                        <span class="badge badge-pill badge-light">
+                            <span style="font-family: monospace;">
+                                {{ item }}
+                            </span>
+                        </span>
+                        {% endfor %}
+                    </span>
+                </div>
+                {% endfor %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<i class="text-muted">
+    {% trans "No composite word" %}
+</i>
+{% endif %}
+{% endwith %}
+{% endblock content %}

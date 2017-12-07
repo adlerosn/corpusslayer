@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load bootstrap_tags %}
+{% block title %}
+{% trans "Privacy Policy" %} | {{ settings.SITE_NAME }}
+{% endblock title %}
+{% block content %}
+<h3>
+    {% trans "Privacy Policy" %}
+</h3>
+{% blocktrans %}
+<!-- PRIVACY POLICY -->
+<p>
+    All data you produce here will be stored in database; and we will make our
+    best effort to keep private the informations you store in this platform
+    while still providing authorities requested data when demanded.
+</p>
+{% endblocktrans %}
+{% endblock content %}

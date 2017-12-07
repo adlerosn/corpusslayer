@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load bootstrap_tags %}
+{% load humanize %}
+
+{% block content %}
+{% block h3title %}
+<h3>
+    {% blocktrans %}
+    {{ title }} Form
+    {% endblocktrans %}
+</h3>
+{% endblock h3title %}
+<br>
+{% if err %}
+<div class="alert alert-danger" role="alert">
+    {{ err | safe }}
+</div>
+{% endif %}
+<form method="post" action="{{ request.path }}">
+    {% csrf_token %}
+    {{ form | as_bootstrap }}
+    <button type="submit" class="btn btn-primary">{% trans "Save" %}</button>
+</form>
+{% endblock content %}

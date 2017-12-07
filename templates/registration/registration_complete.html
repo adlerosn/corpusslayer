@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load bootstrap_tags %}
+{% block title %}
+{% trans "Check your mailbox" %} | {{ settings.SITE_NAME }}
+{% endblock title %}
+{% block content %}
+<p>
+    {% blocktrans %}
+    An email containing account-activation information has been sent.
+    {% endblocktrans %}
+</p>
+<p>
+    {% blocktrans %}
+    Tip: Have you checked your spam box?
+    {% endblocktrans %}
+</p>
+<p>
+    {% blocktrans %}
+    You only will be able to use your account following such instructions.
+    {% endblocktrans %}
+</p>
+{% endblock content %}

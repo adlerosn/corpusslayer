@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load url_tools %}
+{% load request_tools %}
+
+{% block title %}
+{% with request|tocorpus as corpus %}
+{% trans "Word Frequency" %} | Unitex/GramLab | {{ corpus.title }} | {{ block.super }}
+{% endwith %}
+{% endblock title %}
+
+{% block content %}
+{% with request|tocorpus as corpus %}
+<h3>
+    {% trans "Word Frequency" %}
+    <small class="text-muted">
+        -
+        <a class="badge badge-pill badge-light text-muted" href="{% url 'corpus' corpus.pk %}">
+            {{ corpus.title }}
+        </a>
+    </small>
+</h3>
+<br>
+{% if words %}
+<table class='table'>
+    <thead class='thead-dark'>
+        <tr>
+            <th>
+                {% trans "Token" %}
+            </th>
+            <th>
+                {% trans "Frequency" %}
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for word in words %}
+        <tr>
+            <td>
+                {% with word.0|tojsonb64 as sentence_data %}
+                <a class="badge badge-light" href="{% url 'base_find_fragment' corpus.pk sentence_data %}"><i class="fa fa-reply" aria-hidden="true"></i></a>
+                {% endwith %}
+                <code>{{ word.0 }}</code>
+            </td>
+            <td>
+                {{ word.1 }}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<i class="text-muted">
+    {% trans "Empty" %}
+</i>
+{% endif %}
+{% endwith %}
+{% endblock content %}

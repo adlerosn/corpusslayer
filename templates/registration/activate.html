@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load bootstrap_tags %}
+{% block title %}
+{% trans "Failed" %} | {{ settings.SITE_NAME }}
+{% endblock title %}
+{% block content %}
+<h3>
+    {% trans "Account activation failed" %}
+</h3>
+<p>
+    {% trans "The key provided wasn't be recognized." %}
+</p>
+<dl>
+    <dt>
+        {% trans "Activation key" %}:
+    </dt>
+    <dd>
+        <code>
+            {{ activation_key }}
+        </code>
+    </dd>
+    <dt>
+        {% trans "Length" %}:
+    </dt>
+    <dd>
+        <code>
+            {{ activation_key | length }}
+        </code>
+    </dd>
+</dl>
+{% endblock content %}

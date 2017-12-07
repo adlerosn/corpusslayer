@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load bootstrap_tags %}
+{% load humanize %}
+{% block content %}
+<h3>
+    {% trans "Help" %}
+</h3>
+<br>
+{% blocktrans %}
+<p>
+    This platform is an academic proof-of-concept that serves the purpose of processing
+    arbitrary user-provided text, using a modular architecture. Rough edges in usability
+    may be found everywhere.
+</p>
+{% endblocktrans %}
+{% endblock content %}

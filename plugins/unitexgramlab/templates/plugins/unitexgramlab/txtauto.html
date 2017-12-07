@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load url_tools %}
+{% load request_tools %}
+
+{% block title %}
+{% with request|tocorpus as corpus %}
+{% trans "Text Automata" %} | Unitex/GramLab | {{ corpus.title }} | {{ block.super }}
+{% endwith %}
+{% endblock title %}
+
+{% block content %}
+{% with request|tocorpus as corpus %}
+<h3>
+    {% trans "Text Automata" %}
+    <small class="text-muted">
+        -
+        <a class="badge badge-pill badge-light text-muted" href="{% url 'corpus' corpus.pk %}">
+            {{ corpus.title }}
+        </a>
+    </small>
+</h3>
+<br>
+<div>
+    <a class="btn btn-secondary" href="{% url download corpus_pk 'svg' %}">
+        <i class="fa fa-arrow-down" aria-hidden="true"></i>
+        SVG
+    </a>
+    <a class="btn btn-secondary" href="{% url download corpus_pk 'pdf' %}">
+        <i class="fa fa-arrow-down" aria-hidden="true"></i>
+        PDF
+    </a>
+    <a class="btn btn-secondary" href="{% url download corpus_pk 'jpg' %}">
+        <i class="fa fa-arrow-down" aria-hidden="true"></i>
+        JPG
+    </a>
+    <a class="btn btn-secondary" href="{% url download corpus_pk 'gv' %}">
+        <i class="fa fa-arrow-down" aria-hidden="true"></i>
+        Graphviz
+    </a>
+</div>
+<div>
+    <img class="img-fluid" src="{% url download corpus_pk 'jpg' %}">
+</div>
+{% endwith %}
+{% endblock content %}

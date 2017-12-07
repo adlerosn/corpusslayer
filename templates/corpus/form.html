@@ -1,0 +1,30 @@
+{% extends "forms/form.html" %}
+
+{% load i18n %}
+{% load url_tools %}
+{% load request_tools %}
+
+{% block title %}
+{% with request|tocorpus as corpus %}
+{% if corpus %}
+{% trans "Edit" %}
+{% else %}
+{% trans "Create" %}
+{% endif %}
+{% trans "Corpus" %}{% if corpus %}: {{ corpus.title }}{% endif %}
+ | {{ settings.SITE_NAME }}
+{% endwith %}
+{% endblock title %}
+
+{% block h3title %}
+{% with request|tocorpus as corpus %}
+<h3>
+    {% if corpus %}
+    {% trans "Edit" %}
+    {% else %}
+    {% trans "Create" %}
+    {% endif %}
+    {% trans "Corpus" %}{% if corpus %}: {{ corpus.title }}{% endif %}
+</h3>
+{% endwith %}
+{% endblock h3title %}

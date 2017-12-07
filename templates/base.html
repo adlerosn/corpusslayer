@@ -1,0 +1,105 @@
+{% load i18n %}{% load static %}<!DOCTYPE html>
+<html lang="{% trans 'lang-code-iso' %}">
+<head>
+    <meta charset="utf-8">
+    <title>
+        {% block title %}
+        {% if title %}
+        {{ title }} | {{ settings.SITE_NAME }}
+        {% else %}
+        {{ settings.SITE_NAME }}
+        {% endif %}
+        {% endblock %}
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#343a40">
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}"/>
+    <script>window.CKEDITOR_BASEPATH = '{% static "ckeditor/ckeditor/" %}';</script>
+    <script src="{% static 'ckeditor/ckeditor-init.js' %}" defer></script>
+    <script src="{% static 'ckeditor/ckeditor/ckeditor.js' %}" defer></script>
+    <script src="{% static 'framework/js/jquery.min.js' %}" type="text/javascript" defer></script>
+    <script src="{% static 'framework/js/tether.min.js' %}" type="text/javascript" defer></script>
+    <script src="{% static 'framework/popper_js/popper_from_example.min.js' %}" type="text/javascript" defer></script>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}" type="text/javascript" defer></script>
+    <script src="{% static 'initAllPopovers.js' %}" defer></script>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'framework/fontAwesome/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'framework/font/stylesheet.css' %}">
+    {% block extraHead %}{% endblock extraHead %}
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <a class="navbar-brand" href="{% url 'index' %}">
+            <img src="{% static 'logo_monocolor_white.svg' %}" width="30" height="30" class="d-inline-block align-top" alt="">
+            {{ settings.SITE_NAME }}
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainTopNavbar" aria-controls="mainTopNavbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="mainTopNavbar" style="">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    {% get_current_language as LANGUAGE_CODE %}
+                    {% get_language_info for LANGUAGE_CODE as current_lang %}
+                    {% get_available_languages as LANGUAGES %}
+                    {% get_language_info_list for LANGUAGES as available_languages %}
+                    <a class="nav-link dropdown-toggle" href="#" id="langDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{ current_lang.name_local }} ({{ current_lang.code }})
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="langDropdown">
+                        <form method="post" action="{% url 'set_language' %}">
+                            <input type="hidden" name="next" value="{{ request.get_full_path }}">
+                            {% csrf_token %}
+                            {% for available_lang in available_languages %}
+                            <button name="language" value="{{ available_lang.code }}" class="dropdown-item{% if current_lang.code == available_lang.code %} disabled{% endif %}">
+                                {{ available_lang.name_local }} ({{ available_lang.code }})
+                            </button>
+                            {% endfor %}
+                        </form>
+                    </div>
+                </li>
+                {% if user.is_authenticated %}
+                <a class="nav-link btn btn-dark" href="{% url 'my_account' %}">
+                    <i class="fa fa-cog" aria-hidden="true"></i>
+                    {% trans 'Settings' %}
+                </a>
+                <a class="nav-link btn btn-dark" href="{% url 'auth_logout' %}">
+                    <i class="fa fa-sign-out" aria-hidden="true"></i>
+                    {% trans 'Log out' %}
+                </a>
+                {% endif %}
+            </ul>
+            {% if not user.is_authenticated %}
+            {% if request.path != '/' %}
+            {% if request.path != '/accounts/login/' %}
+            <ul class="navbar-nav form-inline my-2 my-lg-0">
+                <a href="{% url 'registration_register' %}" class="btn btn-outline-info ml-sm-2">
+                    {% trans 'Sign Up' %}
+                </a>
+                <a href="{% url 'auth_login' %}" class="btn btn-outline-success ml-sm-1">
+                    {% trans "Log in" %}
+                </a>
+            </ul>
+            {% endif %}
+            {% endif %}
+            {% endif %}
+        </div>
+    </nav>
+    <header style="margin-bottom: 1em;">&nbsp;</header>
+    <main class="container">
+        {% block content %}{% endblock %}
+    </main>
+    <footer class="footer jumbotron" style="margin-bottom: 0; margin-top: 3em;">
+        <div class="container">
+            <span class="text-muted">
+                {% trans 'Site handcrafted with love using Django' %}
+            </span>
+            <span class="float-right">
+                <a class="mx-2" href="{% url 'help' %}">{% trans 'Help' %}</a>
+                <a class="mx-2" href="{% url 'privacy' %}">{% trans 'Privacy' %}</a>
+                <a class="mx-2" href="{% url 'tos' %}">{% trans 'Terms' %}</a>
+            </span>
+        </div>
+    </footer>
+</body>
+</html>

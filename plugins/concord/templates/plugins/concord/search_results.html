@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load url_tools %}
+{% load request_tools %}
+
+{% block title %}
+{% with request|tocorpus as corpus %}
+{% trans "Results" %} | {% trans "Concordancer" %} | {{ corpus.title }} | {{ block.super }}
+{% endwith %}
+{% endblock title %}
+
+{% block content %}
+{% with request|tocorpus as corpus %}
+<h3>
+    {% trans "Concordancer results" %}
+    <small class="text-muted">
+        -
+        <a class="badge badge-pill badge-light text-muted" href="{% url 'corpus' corpus.pk %}">
+            {{ corpus.title }}
+        </a>
+    </small>
+</h3>
+<br>
+{% if results %}
+<ol>
+    {% for result in results %}
+    <hr>
+    <li>
+        {% with result.hintedFragment|tojsonb64 as sentence_data %}
+        <a class="badge badge-light" href="{% url 'base_find_fragment' corpus.pk sentence_data %}"><i class="fa fa-reply" aria-hidden="true"></i></a>
+        {% endwith %}
+        {% for taggedword in result.hintedFragment %}
+        <span style="font-family: monospace; font-size: 125%;">
+            <span class="badge badge-{% if taggedword.2 %}danger{% else %}secondary{% endif %}">
+                <span class="badge badge-pill badge-light">
+                    <span style="font-family: monospace;">
+                        {{ taggedword.0 }}
+                    </span>
+                </span>
+                <span class="badge badge-pill badge-{% if taggedword.2 %}info{% else %}light{% endif %}">
+                    <span style="font-family: monospace;">
+                        {{ taggedword.1 }}
+                    </span>
+                </span>
+            </span>
+        </span>
+        {% endfor %}
+    </li>
+    {% endfor %}
+</ol>
+{% else %}
+<i class="text-muted">
+    {% trans "Empty" %}
+</i>
+{% endif %}
+{% endwith %}
+{% endblock content %}

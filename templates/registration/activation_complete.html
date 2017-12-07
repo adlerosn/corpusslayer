@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load bootstrap_tags %}
+{% block title %}
+{% trans "Activated" %} | {{ settings.SITE_NAME }}
+{% endblock title %}
+{% block content %}
+<h3>
+    {% trans "Account activated" %}
+</h3>
+<p>
+    <a class="btn btn-primary" href="{% url 'index' %}">
+        {% trans "Go to homepage" %}
+    </a>
+</p>
+{% endblock content %}

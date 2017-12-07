@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load bootstrap_tags %}
+{% block content %}
+<form class="form-group" action="{% url 'registration_register' %}" method="post">
+    {% csrf_token %}
+    {{ form | as_bootstrap_horizontal }}
+    <div class="col-md-10 ">
+        <div class="input-group mb-1">
+            <span class="input-group-addon">
+                <input id="agree_terms" type="checkbox" required="">
+            </span>
+            <label for="agree_terms" class="form-control">
+                {% trans "I have read and agreed with the" %} <a class="pl-1" href="{% url 'tos' %}">{% trans "Terms of Service" %}</a>
+            </label>
+        </div>
+    </div>
+    <div class="col-md-10 ">
+        <div class="input-group mb-1">
+            <span class="input-group-addon">
+                <input id="agree_privacy" type="checkbox" required="">
+            </span>
+            <label for="agree_privacy" class="form-control">
+                {% trans "I have read and agreed with the" %} <a class="pl-1" href="{% url 'privacy' %}">{% trans "Privacy Policy" %}</a>
+            </label>
+        </div>
+    </div>
+    <div class="col-md-10 ">
+        <div class="input-group mb-1">
+            <span class="input-group-addon">
+                <input id="agree_mail" type="checkbox" required="">
+            </span>
+            <label for="agree_mail" class="form-control">
+                {% blocktrans %}
+                I agree with receiving an email in order to verify this account.
+                {% endblocktrans %}
+            </label>
+        </div>
+    </div>
+    <div class="form-group col-md-10 mt-3">
+        <input type="submit" value="Submit" class="btn btn-primary" />
+    </div>
+</form>
+{% endblock content %}
+{% block extraHead %}
+<style>
+#div_id_password1 ul,
+p.help-block{
+    opacity: 0.5;
+}
+</style>
+{% endblock extraHead %}

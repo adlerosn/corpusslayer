@@ -1,0 +1,17 @@
+__pycache__/**
+**/*.pyc
+**/.ignore/**
+**/*~
+pyLibs
+pyLibs/**
+unitex
+unitex/**
+lang
+lang/**
+work
+work/**
+libunitex.so
+UnitexTool
+*.zip
+pyunitex.py
+.ignore

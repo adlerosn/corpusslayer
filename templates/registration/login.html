@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load bootstrap_tags %}
+{% block title %}
+{% trans "Log In" %} | {{ settings.SITE_NAME }}
+{% endblock title %}
+{% block content %}
+<h3>
+    {% trans "Log In" %}
+</h3>
+<br />
+<form class="form-group" action="{% url 'auth_login' %}" method="post">
+    {% csrf_token %}
+    {{ form | as_bootstrap_horizontal }}
+    {% if next %}
+    <input type="hidden" name="next" value="{{ next }}" />
+    {% else %}
+    <input type="hidden" name="next" value="{% url 'my_account' %}" />
+    {% endif %}
+    <div class="form-group col-md-10">
+        <input type="submit" value="{% trans 'Log In' %}" class="btn btn-primary" />
+        <a class="btn btn-secondary" href="{% url 'auth_password_reset' %}">{% trans "Forgot my password" %}</a>
+    </div>
+</form>
+<br />
+<br />
+<p>
+    <h5>
+        {% trans "Don't have an account?" %}
+    </h5>
+    <div>
+        <a class="btn btn-outline-primary" href="{% url 'registration_register' %}">{% trans "Sign Up" %}</a>
+    </div>
+<p>
+</p>
+    <h5>
+        {% trans "Didn't receive your activation email yet?" %}
+    </h5>
+    <div>
+        <a class="btn btn-outline-primary" href="{% url 'registration_resend_activation' %}">{% trans "Resend" %}</a>
+    </div>
+</p>
+{% endblock content %}
+{% block extraHead %}
+<style>
+    #div_id_password1 ul,
+    p.help-block{
+        opacity: 0.5;
+    }
+</style>
+{% endblock extraHead %}

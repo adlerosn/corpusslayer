@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load url_tools %}
+{% load request_tools %}
+
+{% block title %}
+{% with request|tocorpus as corpus %}
+{% trans "Error while processing corpus" %} | MX-SUITE | {{ corpus.title }} | {{ block.super }}
+{% endwith %}
+{% endblock title %}
+
+{% block content %}
+{% with request|tocorpus as corpus %}
+<h3>
+    {% trans "Error while processing corpus" %}
+    <small class="text-muted">
+        -
+        <a class="badge badge-pill badge-light text-muted" href="{% url 'corpus' corpus.pk %}">
+            {{ corpus.title }}
+        </a>
+    </small>
+</h3>
+<br>
+<a href="{% url 'analysis' corpus_pk %}" class="btn btn-primary">
+    {% trans "Return to analysis options" %}
+</a>
+<hr>
+<p>
+    {% trans "Details:" %}
+</p>
+<p>
+    <pre style="font-size: 75%;">{{log}}</pre>
+</p>
+{% endwith %}
+{% endblock content %}

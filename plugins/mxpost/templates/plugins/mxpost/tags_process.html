@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load url_tools %}
+{% load request_tools %}
+
+{% block title %}
+{% with request|tocorpus as corpus %}
+{% trans "Process Corpus" %} | MXPOST | {{ corpus.title }} | {{ block.super }}
+{% endwith %}
+{% endblock title %}
+
+{% block content %}
+{% with request|tocorpus as corpus %}
+<h3>
+    {% trans "Process Corpus" %}
+    <small class="text-muted">
+        -
+        <a class="badge badge-pill badge-light text-muted" href="{% url 'corpus' corpus.pk %}">
+            {{ corpus.title }}
+        </a>
+    </small>
+</h3>
+<br>
+<form class="form" method="post">
+    {% csrf_token %}
+    <div>
+        <iframe src="{% url license_dockey corpus_pk %}" class="form-control"></iframe>
+    </div>
+    <div>
+        <input type="checkbox" class="form-contol" required>&nbsp;{% trans "I read and agreed with the license above" %}</input>
+    </div>
+    <div>
+        <select name="lang" class="form-control" required="">
+            <option value="" selected="">{% trans "Click here to select a language" %}</option>
+            <option value="">--------</option>
+            {% for lang in assets %}
+            <option value="{{lang.id}}">{{lang.langfull}} [{{lang.source}}]</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div>
+        <select name="source" class="form-control" required="">
+            <option value="" selected="">{% trans "Click here to select a sentence list source" %}</option>
+            <option value="">--------</option>
+            {% for source in sources %}
+            <option value="{{source.key}}">{{source.name}}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div>
+        <button type="submit" class="btn btn-primary">{% trans "Process" %}</button>
+    </div>
+</form>
+{% endwith %}
+{% endblock content %}

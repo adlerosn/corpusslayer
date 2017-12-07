@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load url_tools %}
+{% load request_tools %}
+
+{% block title %}
+{% with request|tocorpus as corpus %}
+{% trans "Document" %} #{{ document.pk }} | {{ corpus.title }} | {{ block.super }}
+{% endwith %}
+{% endblock title %}
+
+{% block content %}
+<h3>
+    {% trans "Document" %} #{{ document.pk }}
+    <small class="text-muted">
+        {% trans "from" %}
+        <a class="badge badge-pill badge-light text-muted" href="{% url 'corpus' corpus.pk %}#i{{document.pk}}">
+            {{ corpus.title }}
+        </a>
+    </small>
+</h3>
+<article class="mt-5">
+    <div class="alert alert-secondary mb-4">
+        <h5 class="mb-0">
+            {{ document.title }}
+        </h5>
+        <div>
+            <small class="text-muted">
+                {{ document.source }}
+            </small>
+        </div>
+    </div>
+    <div class="mx-4">
+        {% for textline in textlines %}
+        <p>
+            &nbsp; &nbsp;
+            &nbsp; &nbsp;
+            &nbsp; &nbsp;
+            {{ textline }}
+        </p>
+        {% endfor %}
+    </div>
+</article>
+{% endblock content %}

@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load url_tools %}
+{% load request_tools %}
+
+{% block title %}
+{% with request|tocorpus as corpus %}
+{% trans "Missing Text Automata" %} | Unitex/GramLab | {{ corpus.title }} | {{ block.super }}
+{% endwith %}
+{% endblock title %}
+
+{% block content %}
+{% with request|tocorpus as corpus %}
+<h3>
+    {% trans "Missing Text Automata" %}
+    <small class="text-muted">
+        -
+        <a class="badge badge-pill badge-light text-muted" href="{% url 'corpus' corpus.pk %}">
+            {{ corpus.title }}
+        </a>
+    </small>
+</h3>
+<br>
+<p>
+    {% trans "It seems you opted skipping this before. Generating this data on long texts may take hours or even days to process." %}
+</p>
+<p>
+    {% trans "What should be done now?" %}
+</p>
+<div class="mt-1">
+<a class="btn btn-secondary" href="{% url 'analysis' corpus_pk %}">
+    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+    {% trans "Return to analysis" %}
+</a>
+</div>
+<div class="mt-1">
+<a class="btn btn-primary" href="{{link_back}}">
+    <i class="fa fa-cogs" aria-hidden="true"></i>
+    {% trans "Reprocess data" %}
+</a>
+</div>
+{% endwith %}
+{% endblock content %}

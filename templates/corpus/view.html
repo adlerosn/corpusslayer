@@ -1,0 +1,35 @@
+{% extends 'forms/crudlist.html' %}
+{% load i18n %}
+{% load request_tools %}
+
+{% block title %}
+{% with request|tocorpus as corpus %}
+{{ corpus.title }} | {{ block.super }}
+{% endwith %}
+{% endblock title %}
+
+{% block h3title %}
+{% with request|tocorpus as corpus %}
+<h3>
+    {% trans "Documents of" %} {{ corpus.title }}
+</h3>
+{% endwith %}
+{% endblock h3title %}
+
+{% block posttitle %}
+<a class="btn btn-danger" href="{% url 'corpus_del' current_pk %}">
+    <i class="fa fa-times" aria-disabled="true"></i>
+    {% trans "Delete" %}
+</a>
+<a class="btn btn-info" href="{% url 'corpus_edt' current_pk %}">
+    <i class="fa fa-pencil" aria-disabled="true"></i>
+    {% trans "Edit" %}
+</a>
+<a class="btn btn-success" href="{% url 'corpus_xpl' current_pk %}">
+    <i class="fa fa-search" aria-disabled="true"></i>
+    {% trans "Explore" %}
+</a>
+<br>
+<br>
+<hr>
+{% endblock %}

@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load url_tools %}
+{% load request_tools %}
+
+{% block title %}
+{% with request|tocorpus as corpus %}
+{% if finished %}
+{% trans "Corpus processed" %}
+{% else %}
+{% trans "Processing corpus..." %}
+| Unitex/GramLab | {{ corpus.title }} | {{ block.super }}
+{% endif %}
+{% endwith %}
+{% endblock title %}
+
+{% block content %}
+{% with request|tocorpus as corpus %}
+{% if finished %}
+<h3>
+    {% trans "Corpus processed" %}
+    <small class="text-muted">
+        -
+        <a class="badge badge-pill badge-light text-muted" href="{% url 'corpus' corpus.pk %}">
+            {{ corpus.title }}
+        </a>
+    </small>
+</h3>
+{% else %}
+<h3>
+    {% trans "Processing corpus..." %}
+    <small class="text-muted">
+        -
+        <a class="badge badge-pill badge-light text-muted" href="{% url 'corpus' corpus.pk %}">
+            {{ corpus.title }}
+        </a>
+    </small>
+</h3>
+{% endif %}
+<br>
+<div class="progress">
+    <div class="progress-bar" role="progressbar" style="width: {{percent_finished}}%;" aria-valuenow="{{ logs.current_length }}" aria-valuemin="0" aria-valuemax="{{ logs.expected_length }}">
+        {{ logs.current_length }}
+        {% trans "of" %}
+        {{ logs.expected_length }}
+    </div>
+</div>
+{% if finished %}
+<a class="btn btn-block btn-success" href="{{ finished }}">
+    {% trans "Return to analysis" %}
+</a>
+{% else %}
+<script defer async>
+    setTimeout(function(){window.location.reload()}, 500)
+</script>
+{% endif %}
+<br>
+<table class='table'>
+    <thead class='thead-dark'>
+        <tr>
+            <th scope="col">
+                {% trans "Task" %}
+            </th>
+            <th scope="col">
+                {% trans "Status" %}
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for task in logs.tasks %}
+        <tr>
+            <td scope="col">
+                {% trans task.title %}
+            </td>
+            <td scope="col">
+                {% if not task.began %}
+                {% trans "Waiting" %}
+                {% else %}
+                {% if task.completed %}
+                {% trans "Finished" %}
+                {% else %}
+                {% trans "Running" %}
+                {% endif %}
+                {% if task.errored %}
+                {% trans "with errors" %}
+                {% endif %}
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endwith %}
+{% endblock content %}

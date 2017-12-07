@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load bootstrap_tags %}
+{% block title %}
+{% trans 'Settings' %} | {{ settings.SITE_NAME }}
+{% endblock title %}
+{% block content %}
+<h3>
+    {% trans 'Settings' %}
+</h3>
+<br />
+<p>
+    <a class="btn btn-outline-primary" href="{% url 'index' %}">
+        <i class="fa fa-list" aria-hidden="true"></i>
+        {% trans "Corpora list" %}
+    </a>
+</p>
+<p>
+    <a class="btn btn-outline-primary" href="{% url 'auth_password_change' %}">
+        <i class="fa fa-key" aria-hidden="true"></i>
+        {% trans "Change password" %}
+    </a>
+</p>
+<p>
+    <a class="btn btn-outline-danger" href="{% url 'auth_logout' %}">
+        <i class="fa fa-sign-out" aria-hidden="true"></i>
+        {% trans 'Log out' %}
+    </a>
+</p>
+{% endblock content %}

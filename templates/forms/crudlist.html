@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load bootstrap_tags %}
+{% load humanize %}
+{% block content %}
+{% block h3title %}
+<h3>
+    {% blocktrans %}
+    {{ title }} List
+    {% endblocktrans %}
+</h3>
+{% endblock %}{% block posttitle %}{% endblock %}
+<br>
+{% for item in items %}
+<p id="i{{item.pk}}" class="targetable">
+    <a class="btn btn-danger" href="{% url delete_url_label item.pk %}">
+        <i class="fa fa-times" aria-disabled="true"></i>
+    </a>
+    <a class="btn btn-info" href="{% url edit_url_label item.pk %}">
+        <i class="fa fa-pencil" aria-disabled="true"></i>
+    </a>
+    <span class="ml-2">
+        {% include item_template %}
+    </span>
+</p>
+<hr>
+{% empty %}
+<p>
+    <i class="text-muted">
+        {% trans "Nothing to display" %}
+    </i>
+</p>
+{% endfor %}
+<style>
+    .targetable:target {
+        border: 1px solid #ffeeba;
+        background-color: #fff3cd;
+        border-radius: .25rem;
+    }
+</style>
+{% block preadd %}{% endblock %}
+<a class="btn btn-success btn-block" href="{{addlink}}">
+    <i class="fa fa-plus" aria-disabled="true"></i>
+    {% trans "Add" %}
+</a>
+{% block postadd %}{% endblock %}
+{% endblock content %}

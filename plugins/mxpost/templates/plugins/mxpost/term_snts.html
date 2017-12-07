@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load url_tools %}
+{% load request_tools %}
+
+{% block title %}
+{% with request|tocorpus as corpus %}
+{% trans "Sentece List" %} | MXTERMINATOR | {{ corpus.title }} | {{ block.super }}
+{% endwith %}
+{% endblock title %}
+
+{% block content %}
+{% with request|tocorpus as corpus %}
+<h3>
+    {% trans "Sentece List" %}
+    <small class="text-muted">
+        -
+        <a class="badge badge-pill badge-light text-muted" href="{% url 'corpus' corpus.pk %}">
+            {{ corpus.title }}
+        </a>
+    </small>
+</h3>
+<br>
+{% if sentences %}
+<ol>
+    {% for sentence in sentences %}
+    <li>
+        {% with sentence|tojsonb64 as sentence_data %}
+        <a class="badge badge-light" href="{% url 'base_find_fragment' corpus.pk sentence_data %}"><i class="fa fa-reply" aria-hidden="true"></i></a>
+        {% endwith %}
+        <span style="font-family: monospace; font-size: 75%;">
+            {{ sentence }}
+        </span>
+    </li>
+    {% endfor %}
+</ol>
+{% else %}
+<i class="text-muted">
+    {% trans "Empty" %}
+</i>
+{% endif %}
+{% endwith %}
+{% endblock content %}

@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load url_tools %}
+{% load request_tools %}
+
+{% block title %}
+{% with request|tocorpus as corpus %}
+{% trans "Tagged Sentece List" %} | TreeTagger | {{ corpus.title }} | {{ block.super }}
+{% endwith %}
+{% endblock title %}
+
+{% block content %}
+{% with request|tocorpus as corpus %}
+<h3>
+    {% trans "Tagged Sentece List" %}
+    <small class="text-muted">
+        -
+        <a class="badge badge-pill badge-light text-muted" href="{% url 'corpus' corpus.pk %}">
+            {{ corpus.title }}
+        </a>
+    </small>
+</h3>
+<br>
+{% if postags %}
+<ol>
+    {% for postag in postags %}
+    <li>
+        {% with postag|tojsonb64 as sentence_data %}
+        <a class="badge badge-light" href="{% url 'base_find_fragment' corpus.pk sentence_data %}"><i class="fa fa-reply" aria-hidden="true"></i></a>
+        {% endwith %}
+        <span style="font-family: monospace; font-size: 125%;">
+            {% for taggedword in postag %}
+            <span class="badge badge-dark">
+                <span class="badge badge-pill badge-light">
+                    <span style="font-family: monospace;">
+                        {{ taggedword.0 }}
+                    </span>
+                </span>
+                <span class="badge badge-pill badge-info">
+                    <span style="font-family: monospace;">
+                        {{ taggedword.1 }}
+                    </span>
+                </span>
+            </span>
+            {% endfor %}
+        </span>
+    </li>
+    {% endfor %}
+</ol>
+{% else %}
+<i class="text-muted">
+    {% trans "Empty" %}
+</i>
+{% endif %}
+{% endwith %}
+{% endblock content %}

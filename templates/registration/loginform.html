@@ -1,0 +1,17 @@
+{% load i18n %}
+{% load bootstrap_tags %}
+<form class="form-group" action="{% url 'auth_login' %}" method="post">
+    {% csrf_token %}
+    {{ form | as_bootstrap }}
+    {% if next %}
+    <input type="hidden" name="next" value="{{ next }}" />
+    {% else %}
+    <input type="hidden" name="next" value="{% url 'my_account' %}" />
+    {% endif %}
+    <div class="form-group">
+        <input type="submit" value="{% trans 'Log In' %}" class="btn btn-primary {{loginbtnextraclasses}}" />
+        <a class="btn btn-secondary {{loginbtnextraclasses}}" href="{% url 'auth_password_reset' %}" style="white-space: normal;">
+            {% trans 'Forgot my password' %}
+        </a>
+    </div>
+</form>

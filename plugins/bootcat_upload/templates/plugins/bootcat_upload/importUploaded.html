@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load url_tools %}
+{% load request_tools %}
+
+{% block title %}
+{% with request|tocorpus as corpus %}
+{% trans "BootCaT upload" %} | {{ corpus.title }} | {{ block.super }}
+{% endwith %}
+{% endblock title %}
+
+{% block content %}
+<h3>
+    {% trans "Import corpus built with BootCaT" %}
+    <small class="text-muted">
+        -
+        <a class="badge badge-pill badge-light text-muted" href="{% url 'corpus' corpus.pk %}">
+            {{ corpus.title }}
+        </a>
+    </small>
+</h3>
+<br>
+<h4>
+    {% trans "Step" %} 1: {% trans "Build corpus" %}
+</h4>
+<p>
+    {% blocktrans %}
+    <a href="http://bootcat.dipintra.it/?section=download">Download</a>, install and
+    <a href="http://docs.sslmit.unibo.it/doku.php?id=bootcat:tutorials:basic_1">use the tool</a>
+    to build a corpus.
+    {% endblocktrans %}
+</p>
+<h4>
+    {% trans "Step" %} 2: {% trans "Upload corpus content" %}
+</h4>
+<form method="post">
+    {% csrf_token %}
+    <textarea class="form-control" placeholder="{% trans 'Paste your corpus here' %}" name="corpus"></textarea>
+    <button type="submit" class="btn btn-primary">{% trans "Submit" %}</button>
+</form>
+{% endblock content %}

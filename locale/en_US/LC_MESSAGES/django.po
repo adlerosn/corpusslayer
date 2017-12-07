@@ -1,0 +1,1411 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-12-01 23:51+0000\n"
+"PO-Revision-Date: 2017-12-01 23:42+0000\n"
+"Last-Translator: b'  <adlerosn@gmail.com>'\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Translated-Using: django-rosetta 0.7.13\n"
+
+#: application/models.py:56 application/models.py:76
+msgid "title"
+msgstr "title"
+
+#: application/models.py:57
+msgid "language"
+msgstr "language"
+
+#: application/models.py:58
+msgid "comments"
+msgstr "Comments"
+
+#: application/models.py:60 templates/corpus/form.html:14
+#: templates/corpus/form.html:27
+msgid "Corpus"
+msgstr "Corpus"
+
+#: application/models.py:77
+msgid "source"
+msgstr "source"
+
+#: application/models.py:78
+msgid "text"
+msgstr "text"
+
+#: application/models.py:80 plugins/base/templates/plugins/base/document.html:8
+#: plugins/base/templates/plugins/base/document.html:14
+#: templates/corpus/docform.html:15 templates/corpus/docform.html:29
+msgid "Document"
+msgstr "Documents"
+
+#: plugins/base/templates/plugins/base/document.html:16
+msgid "from"
+msgstr "from"
+
+#: plugins/base/templates/plugins/base/finder.html:8
+#: plugins/base/templates/plugins/base/finder.html:14
+msgid "Documents found"
+msgstr "Documents found"
+
+#: plugins/base/templates/plugins/base/finder.html:16
+#: templates/corpus/docform.html:29
+msgid "in"
+msgstr "in"
+
+#: plugins/base/templates/plugins/base/finder.html:39
+msgid "Regular expression queried:"
+msgstr "Regular expression queried:"
+
+#: plugins/bootcat_upload/hooks.py:14
+msgid "Upload corpus built with BootCaT [bootcat_upload]"
+msgstr "Upload corpus built with BootCaT [BootCaT_upload]"
+
+#: plugins/bootcat_upload/templates/plugins/bootcat_upload/importUploaded.html:8
+msgid "BootCaT upload"
+msgstr "BootCaT upload"
+
+#: plugins/bootcat_upload/templates/plugins/bootcat_upload/importUploaded.html:14
+msgid "Import corpus built with BootCaT"
+msgstr "Import corpus built with BootCaT"
+
+#: plugins/bootcat_upload/templates/plugins/bootcat_upload/importUploaded.html:24
+#: plugins/bootcat_upload/templates/plugins/bootcat_upload/importUploaded.html:34
+msgid "Step"
+msgstr "Step"
+
+#: plugins/bootcat_upload/templates/plugins/bootcat_upload/importUploaded.html:24
+msgid "Build corpus"
+msgstr "Build corpus"
+
+#: plugins/bootcat_upload/templates/plugins/bootcat_upload/importUploaded.html:27
+msgid ""
+"\n"
+"    <a href=\"http://bootcat.dipintra.it/?section=download\">Download</a>, "
+"install and\n"
+"    <a href=\"http://docs.sslmit.unibo.it/doku.php?id=bootcat:tutorials:"
+"basic_1\">use the tool</a>\n"
+"    to build a corpus.\n"
+"    "
+msgstr ""
+"\n"
+"<a href=\"http://bootcat.dipintra.it/?section=download\">Download</a>, "
+"install and\n"
+"<a href=\"http://docs.sslmit.unibo.it/doku.php?id=bootcat:tutorials:"
+"basic_1\">use the tool</a>\n"
+"to build a corpus."
+
+#: plugins/bootcat_upload/templates/plugins/bootcat_upload/importUploaded.html:34
+msgid "Upload corpus content"
+msgstr "Upload corpus content"
+
+#: plugins/bootcat_upload/templates/plugins/bootcat_upload/importUploaded.html:38
+msgid "Paste your corpus here"
+msgstr "Paste your corpus here"
+
+#: plugins/bootcat_upload/templates/plugins/bootcat_upload/importUploaded.html:39
+msgid "Submit"
+msgstr "Submit"
+
+#: plugins/concord/forms.py:36
+msgid "Tagged corpus"
+msgstr "Tagged corpus"
+
+#: plugins/concord/forms.py:37
+msgid "Neighborhood visibility"
+msgstr "Neighborhood visibility"
+
+#: plugins/concord/forms.py:38
+msgid "Whole sentence"
+msgstr "Whole sentence"
+
+#: plugins/concord/forms.py:39
+msgid "6 tokens for each side"
+msgstr "6 tokens for each side"
+
+#: plugins/concord/forms.py:40
+msgid "5 tokens for each side"
+msgstr "5 tokens for each side"
+
+#: plugins/concord/forms.py:41
+msgid "4 tokens for each side"
+msgstr "4 tokens for each side"
+
+#: plugins/concord/forms.py:42
+msgid "3 tokens for each side"
+msgstr "3 tokens for each side"
+
+#: plugins/concord/forms.py:43
+msgid "2 tokens for each side"
+msgstr "2 tokens for each side"
+
+#: plugins/concord/forms.py:44
+msgid "1 token for each side"
+msgstr "1 token for each side"
+
+#: plugins/concord/forms.py:45
+msgid "Only the matched content"
+msgstr "Only the matched content"
+
+#: plugins/concord/forms.py:47
+#: plugins/concord/templates/plugins/concord/search.html:347
+msgid "Query"
+msgstr "Query"
+
+#: plugins/concord/hooks.py:14
+msgid "Concordancer [concord]"
+msgstr "Concordancer [concord]"
+
+#: plugins/concord/templates/plugins/concord/search.html:8
+#: plugins/concord/templates/plugins/concord/search.html:16
+#: plugins/concord/templates/plugins/concord/search_results.html:8
+msgid "Concordancer"
+msgstr "Concordancer"
+
+#: plugins/concord/templates/plugins/concord/search.html:29
+msgctxt "action"
+msgid "Search"
+msgstr "Search"
+
+#: plugins/concord/templates/plugins/concord/search.html:35
+msgid "Decomposing query"
+msgstr "Decomposing query"
+
+#: plugins/concord/templates/plugins/concord/search.html:39
+msgid "Waiting jQuery..."
+msgstr "Waiting jQuery..."
+
+#: plugins/concord/templates/plugins/concord/search.html:137
+msgid "Waiting your input"
+msgstr "Waiting your input"
+
+#: plugins/concord/templates/plugins/concord/search.html:139
+msgid "Processing..."
+msgstr "Processing..."
+
+#: plugins/concord/templates/plugins/concord/search.html:155
+#: plugins/concord/templates/plugins/concord/search.html:258
+msgid "starts with"
+msgstr "starts with"
+
+#: plugins/concord/templates/plugins/concord/search.html:157
+msgid "contains"
+msgstr "contains"
+
+#: plugins/concord/templates/plugins/concord/search.html:159
+#: plugins/concord/templates/plugins/concord/search.html:261
+msgid "ends with"
+msgstr "ends with"
+
+#: plugins/concord/templates/plugins/concord/search.html:179
+msgid "uppercase"
+msgstr "uppercase"
+
+#: plugins/concord/templates/plugins/concord/search.html:179
+msgid "lowercase"
+msgstr "lowercase"
+
+#: plugins/concord/templates/plugins/concord/search.html:215
+msgid "is"
+msgstr "is"
+
+#: plugins/concord/templates/plugins/concord/search.html:233
+msgid "skip"
+msgstr "skip"
+
+#: plugins/concord/templates/plugins/concord/search.html:241
+msgid "skip from"
+msgstr "skip from"
+
+#: plugins/concord/templates/plugins/concord/search.html:245
+#: plugins/concord/templates/plugins/concord/search.html:282
+msgid "until"
+msgstr "until"
+
+#: plugins/concord/templates/plugins/concord/search.html:249
+msgid "tokens"
+msgstr "tokens"
+
+#: plugins/concord/templates/plugins/concord/search.html:278
+msgid "take from"
+msgstr "take from"
+
+#: plugins/concord/templates/plugins/concord/search.html:287
+msgid "take exactly"
+msgstr "take exactly"
+
+#: plugins/concord/templates/plugins/concord/search.html:293
+#: templates/forms/listitem_corpus_document.html:6
+msgid "chars"
+msgstr "chars"
+
+#: plugins/concord/templates/plugins/concord/search.html:314
+msgid "Errors have been found. They are marked in red."
+msgstr "Errors have been found. They are marked in red."
+
+#: plugins/concord/templates/plugins/concord/search.html:338
+msgid "Query help"
+msgstr "Query help"
+
+#: plugins/concord/templates/plugins/concord/search.html:341
+msgid "Check the table below:"
+msgstr "Check the table below:"
+
+#: plugins/concord/templates/plugins/concord/search.html:348
+msgid "Meaning"
+msgstr "Meaning \t"
+
+#: plugins/concord/templates/plugins/concord/search.html:354
+msgid "Text is \"abc\""
+msgstr "Text is \"abc\""
+
+#: plugins/concord/templates/plugins/concord/search.html:358
+msgid "Text is \"\\\""
+msgstr "Text is \"\\\""
+
+#: plugins/concord/templates/plugins/concord/search.html:362
+msgid "Text is \"...\""
+msgstr "Text is \"...\""
+
+#: plugins/concord/templates/plugins/concord/search.html:366
+msgid "The first text is \"abc\" and the second is \"def\""
+msgstr "The first text is \"abc\" and the second is \"def\""
+
+#: plugins/concord/templates/plugins/concord/search.html:370
+msgid ""
+"The first text is \"abc\", the second can be anything and the third is \"def"
+"\""
+msgstr ""
+"The first text is \"abc\", the second can be anything and the third is \"def"
+"\""
+
+#: plugins/concord/templates/plugins/concord/search.html:374
+#, python-brace-format
+msgid ""
+"The first text is \"abc\", the second is \"{1}\" and the third is \"def\""
+msgstr ""
+"The first text is \"abc\", the second is \"{1}\" and the third is \"def\""
+
+#: plugins/concord/templates/plugins/concord/search.html:378
+msgid ""
+"The first text is \"abc\", the second can be anything but does not "
+"necessarity exists and the last is \"def\""
+msgstr ""
+"The first text is \"abc\", the second can be anything but does not "
+"necessarity exists and the last is \"def\""
+
+#: plugins/concord/templates/plugins/concord/search.html:382
+msgid ""
+"The first text is \"abc\", the second can be anything and necessarity exists "
+"at least one and the last is \"def\""
+msgstr ""
+"The first text is \"abc\", the second can be anything and necessarity exists "
+"at least one and the last is \"def\""
+
+#: plugins/concord/templates/plugins/concord/search.html:386
+msgid "Matches words typed in all uppercase"
+msgstr "Matches words typed in all uppercase"
+
+#: plugins/concord/templates/plugins/concord/search.html:390
+msgid ""
+"Matches with an uppercase letter followed by a non-empty sequence of "
+"lowercase letters"
+msgstr ""
+"Matches with an uppercase letter followed by a non-empty sequence of "
+"lowercase letters"
+
+#: plugins/concord/templates/plugins/concord/search.html:394
+msgid "Text starts with \"abc\""
+msgstr "Text starts with \"abc\""
+
+#: plugins/concord/templates/plugins/concord/search.html:398
+msgid "Text is \"abc..\""
+msgstr "Text is \"abc..\""
+
+#: plugins/concord/templates/plugins/concord/search.html:402
+msgid "Text ends with \"xyz\""
+msgstr "Text ends with \"xyz\""
+
+#: plugins/concord/templates/plugins/concord/search.html:406
+msgid "Text contains \"jkl\""
+msgstr "Text contains \"jkl\""
+
+#: plugins/concord/templates/plugins/concord/search.html:410
+msgid "Text starts with \"abc\", contains \"jkl\" and ends with \"xyz\""
+msgstr "Text starts with \"abc\", contains \"jkl\" and ends with \"xyz\""
+
+#: plugins/concord/templates/plugins/concord/search.html:414
+msgid "This matches a word is a double underscore"
+msgstr "This matches a word is a double underscore"
+
+#: plugins/concord/templates/plugins/concord/search.html:418
+msgid "The double underscore sepparates the word part from tag part"
+msgstr "The double underscore sepparates the word part from tag part"
+
+#: plugins/concord/templates/plugins/concord/search.html:422
+msgid "Matches any word that is tagged as \"V\""
+msgstr "Matches any word that is tagged as \"V\""
+
+#: plugins/concord/templates/plugins/concord/search.html:426
+msgid "Matches the word \"mate\" when it is tagged as \"V\""
+msgstr "Matches the word \"mate\" when it is tagged as \"V\""
+
+#: plugins/concord/templates/plugins/concord/search.html:430
+msgid "Matches the word \"mate\" when it is tagged as \"V\" or \"N\""
+msgstr "Matches the word \"mate\" when it is tagged as \"V\" or \"N\""
+
+#: plugins/concord/templates/plugins/concord/search_results.html:8
+msgid "Results"
+msgstr "Results"
+
+#: plugins/concord/templates/plugins/concord/search_results.html:15
+msgid "Concordancer results"
+msgstr "Concordancer results"
+
+#: plugins/concord/templates/plugins/concord/search_results.html:53
+#: plugins/mxpost/templates/plugins/mxpost/tags_snts.html:52
+#: plugins/mxpost/templates/plugins/mxpost/term_snts.html:39
+#: plugins/treetagger/templates/plugins/treetagger/tags_snts.html:52
+#: plugins/unitexgramlab/templates/plugins/unitexgramlab/sentenceautomaton.html:111
+#: plugins/unitexgramlab/templates/plugins/unitexgramlab/sentences.html:39
+#: plugins/unitexgramlab/templates/plugins/unitexgramlab/wordfreq.html:54
+msgid "Empty"
+msgstr "Empty"
+
+#: plugins/concord/views.py:66
+msgid "Click here to select a tagger"
+msgstr "Click here to select a tagger"
+
+#: plugins/macmorpho/hooks.py:38 plugins/macmorpho/hooks.py:51
+#: plugins/macmorpho/hooks.py:64 plugins/unitexgramlab/views.py:102
+msgid "Portuguese (Brazil)"
+msgstr "Portuguese (Brazil)"
+
+#: plugins/mxpost/hooks.py:37
+msgid "Delete processed data [MXTERMINATOR]"
+msgstr "Delete processed data [MXTERMINATOR]"
+
+#: plugins/mxpost/hooks.py:46
+msgid "Process Corpus [MXTERMINATOR]"
+msgstr "Process Corpus [MXTERMINATOR]"
+
+#: plugins/mxpost/hooks.py:55
+msgid "Sentence List [MXTERMINATOR]"
+msgstr "Sentence List [MXTERMINATOR]"
+
+#: plugins/mxpost/hooks.py:64
+msgid "Delete processed data [MXPOST]"
+msgstr "Delete processed data [MXPOST]"
+
+#: plugins/mxpost/hooks.py:73
+msgid "Process Corpus [MXPOST]"
+msgstr "Process Corpus [MXPOST]"
+
+#: plugins/mxpost/hooks.py:82
+msgid "Tagged Text [MXPOST]"
+msgstr "Tagged Text [MXPOST]"
+
+#: plugins/mxpost/hooks.py:99 plugins/mxpost/hooks.py:108
+msgid "English (US)"
+msgstr "English (US)"
+
+#: plugins/mxpost/templates/plugins/mxpost/tags_process.html:8
+#: plugins/mxpost/templates/plugins/mxpost/tags_process.html:15
+#: plugins/mxpost/templates/plugins/mxpost/term_process.html:8
+#: plugins/mxpost/templates/plugins/mxpost/term_process.html:15
+#: plugins/treetagger/templates/plugins/treetagger/process.html:8
+#: plugins/treetagger/templates/plugins/treetagger/process.html:15
+#: plugins/unitexgramlab/templates/plugins/unitexgramlab/process.html:8
+#: plugins/unitexgramlab/templates/plugins/unitexgramlab/process.html:16
+#: plugins/unitexgramlab/templates/plugins/unitexgramlab/wordlist.html:8
+msgid "Process Corpus"
+msgstr "Process Corpus"
+
+#: plugins/mxpost/templates/plugins/mxpost/tags_process.html:30
+#: plugins/mxpost/templates/plugins/mxpost/term_process.html:30
+#: plugins/treetagger/templates/plugins/treetagger/process.html:30
+msgid "I read and agreed with the license above"
+msgstr "I read and agreed with the license above"
+
+#: plugins/mxpost/templates/plugins/mxpost/tags_process.html:34
+#: plugins/mxpost/templates/plugins/mxpost/term_process.html:34
+#: plugins/treetagger/templates/plugins/treetagger/process.html:34
+#: plugins/unitexgramlab/views.py:117
+msgid "Click here to select a language"
+msgstr "Click here to select a language"
+
+#: plugins/mxpost/templates/plugins/mxpost/tags_process.html:43
+msgid "Click here to select a sentence list source"
+msgstr "Click here to select a sentence list source"
+
+#: plugins/mxpost/templates/plugins/mxpost/tags_process.html:51
+#: plugins/mxpost/templates/plugins/mxpost/term_process.html:42
+#: plugins/treetagger/templates/plugins/treetagger/process.html:51
+#: plugins/unitexgramlab/templates/plugins/unitexgramlab/process.html:28
+msgid "Process"
+msgstr "Process"
+
+#: plugins/mxpost/templates/plugins/mxpost/tags_snts.html:8
+#: plugins/mxpost/templates/plugins/mxpost/tags_snts.html:15
+#: plugins/treetagger/templates/plugins/treetagger/tags_snts.html:8
+#: plugins/treetagger/templates/plugins/treetagger/tags_snts.html:15
+msgid "Tagged Sentece List"
+msgstr "Tagged Sentece List"
+
+#: plugins/mxpost/templates/plugins/mxpost/term_snts.html:8
+#: plugins/mxpost/templates/plugins/mxpost/term_snts.html:15
+#: plugins/unitexgramlab/templates/plugins/unitexgramlab/sentences.html:8
+#: plugins/unitexgramlab/templates/plugins/unitexgramlab/sentences.html:15
+msgid "Sentece List"
+msgstr "Sentece List"
+
+#: plugins/mxpost/templates/plugins/mxpost/trace_error.html:8
+#: plugins/mxpost/templates/plugins/mxpost/trace_error.html:15
+#: plugins/treetagger/templates/plugins/treetagger/trace_error.html:8
+#: plugins/treetagger/templates/plugins/treetagger/trace_error.html:15
+msgid "Error while processing corpus"
+msgstr "Error while processing corpus"
+
+#: plugins/mxpost/templates/plugins/mxpost/trace_error.html:25
+#: plugins/treetagger/templates/plugins/treetagger/trace_error.html:25
+msgid "Return to analysis options"
+msgstr "Return to analysis options"
+
+#: plugins/mxpost/templates/plugins/mxpost/trace_error.html:29
+#: plugins/treetagger/templates/plugins/treetagger/trace_error.html:29
+msgid "Details:"
+msgstr "Details:"
+
+#: plugins/treetagger/hooks.py:37
+msgid "Delete processed data [TreeTagger]"
+msgstr "Delete processed data [TreeTagger]"
+
+#: plugins/treetagger/hooks.py:45
+msgid "Process Corpus [TreeTagger]"
+msgstr "Process Corpus [TreeTagger]"
+
+#: plugins/treetagger/hooks.py:53
+msgid "Tagged Text [TreeTagger]"
+msgstr "Tagged Text [TreeTagger]"
+
+#: plugins/treetagger/templates/plugins/treetagger/process.html:43
+msgid "Click here to select a sentence tokens source"
+msgstr "Click here to select a sentence tokens source"
+
+#: plugins/unitexgramlab/forms.py:36
+msgid "Language"
+msgstr "Language"
+
+#: plugins/unitexgramlab/forms.py:37
+msgid "Skip text automata"
+msgstr "Skip text automata"
+
+#: plugins/unitexgramlab/hooks.py:37
+msgid "Delete processed data [Unitex/GramLab]"
+msgstr "Delete processed data [Unitex/GramLab]"
+
+#: plugins/unitexgramlab/hooks.py:45
+msgid "Process Corpus [Unitex/GramLab]"
+msgstr "Process Corpus [Unitex/GramLab]"
+
+#: plugins/unitexgramlab/hooks.py:53
+msgid "Sentence List [Unitex/GramLab]"
+msgstr "Sentence List [Unitex/GramLab]"
+
+#: plugins/unitexgramlab/hooks.py:60
+msgid "Word Frequency [Unitex/GramLab]"
+msgstr "Word Frequency [Unitex/GramLab]"
+
+#: plugins/unitexgramlab/hooks.py:67
+msgid "Word List [Unitex/GramLab]"
+msgstr "Word List [Unitex/GramLab]"
+
+#: plugins/unitexgramlab/hooks.py:74
+msgid "Sentence Automata [Unitex/GramLab]"
+msgstr "Sentence Automata [Unitex/GramLab]"
+
+#: plugins/unitexgramlab/hooks.py:81
+msgid "Text Automata [Unitex/GramLab]"
+msgstr "Text Automata [Unitex/GramLab]"
+
+#: plugins/unitexgramlab/hooks.py:135
+msgid "Unitex/GramLab (tags are empty)"
+msgstr "Unitex/GramLab (tags are empty)"
+
+#: plugins/unitexgramlab/hooks.py:138
+msgid " (tags are empty)"
+msgstr "(tags are empty)"
+
+#: plugins/unitexgramlab/templates/plugins/unitexgramlab/sentenceautomaton.html:8
+#: plugins/unitexgramlab/templates/plugins/unitexgramlab/sentenceautomaton.html:15
+msgid "Sentence Automata"
+msgstr "Sentence Automata"
+
+#: plugins/unitexgramlab/templates/plugins/unitexgramlab/txtauto.html:8
+#: plugins/unitexgramlab/templates/plugins/unitexgramlab/txtauto.html:15
+#: plugins/unitexgramlab/templates/plugins/unitexgramlab/txtauto_huge.html:8
+#: plugins/unitexgramlab/templates/plugins/unitexgramlab/txtauto_huge.html:15
+msgid "Text Automata"
+msgstr "Text Automata"
+
+#: plugins/unitexgramlab/templates/plugins/unitexgramlab/txtauto_huge.html:25
+msgid ""
+"\n"
+"    This automata is so big and would take so much time to render that, in "
+"order\n"
+"    to prevent server overload, we will only provide you the source file, so "
+"you\n"
+"    can render the automata by yourself locally.\n"
+"    "
+msgstr ""
+"\n"
+"This automata is so big and would take so much time to render that, in "
+"order\n"
+"to prevent server overload, we will only provide you the source file, so "
+"you\n"
+"can render the automata by yourself locally.\n"
+"\t"
+
+#: plugins/unitexgramlab/templates/plugins/unitexgramlab/txtauto_huge.html:39
+msgid ""
+"Once downloaded in a computer which has Graphviz installed, run these three "
+"commands:"
+msgstr ""
+"Once downloaded in a computer which has Graphviz installed, run these three "
+"commands:"
+
+#: plugins/unitexgramlab/templates/plugins/unitexgramlab/txtauto_missing.html:8
+#: plugins/unitexgramlab/templates/plugins/unitexgramlab/txtauto_missing.html:15
+msgid "Missing Text Automata"
+msgstr "Missing Text Automata"
+
+#: plugins/unitexgramlab/templates/plugins/unitexgramlab/txtauto_missing.html:25
+msgid ""
+"It seems you opted skipping this before. Generating this data on long texts "
+"may take hours or even days to process."
+msgstr ""
+"It seems you opted skipping this before. Generating this data on long texts "
+"may take hours or even days to process."
+
+#: plugins/unitexgramlab/templates/plugins/unitexgramlab/txtauto_missing.html:28
+msgid "What should be done now?"
+msgstr "What should be done now?"
+
+#: plugins/unitexgramlab/templates/plugins/unitexgramlab/txtauto_missing.html:33
+#: plugins/unitexgramlab/templates/plugins/unitexgramlab/wait.html:50
+msgid "Return to analysis"
+msgstr "Return to analysis"
+
+#: plugins/unitexgramlab/templates/plugins/unitexgramlab/txtauto_missing.html:39
+msgid "Reprocess data"
+msgstr "Reprocess data"
+
+#: plugins/unitexgramlab/templates/plugins/unitexgramlab/wait.html:9
+#: plugins/unitexgramlab/templates/plugins/unitexgramlab/wait.html:21
+msgid "Corpus processed"
+msgstr "Corpus processed"
+
+#: plugins/unitexgramlab/templates/plugins/unitexgramlab/wait.html:11
+#: plugins/unitexgramlab/templates/plugins/unitexgramlab/wait.html:31
+msgid "Processing corpus..."
+msgstr "Processing corpus..."
+
+#: plugins/unitexgramlab/templates/plugins/unitexgramlab/wait.html:44
+msgid "of"
+msgstr "of"
+
+#: plugins/unitexgramlab/templates/plugins/unitexgramlab/wait.html:62
+msgid "Task"
+msgstr "Task"
+
+#: plugins/unitexgramlab/templates/plugins/unitexgramlab/wait.html:65
+msgid "Status"
+msgstr "Status"
+
+#: plugins/unitexgramlab/templates/plugins/unitexgramlab/wait.html:77
+msgid "Waiting"
+msgstr "Waiting"
+
+#: plugins/unitexgramlab/templates/plugins/unitexgramlab/wait.html:80
+msgid "Finished"
+msgstr "Finished"
+
+#: plugins/unitexgramlab/templates/plugins/unitexgramlab/wait.html:82
+msgid "Running"
+msgstr "Running"
+
+#: plugins/unitexgramlab/templates/plugins/unitexgramlab/wait.html:85
+msgid "with errors"
+msgstr "with errors"
+
+#: plugins/unitexgramlab/templates/plugins/unitexgramlab/wordfreq.html:8
+#: plugins/unitexgramlab/templates/plugins/unitexgramlab/wordfreq.html:15
+msgid "Word Frequency"
+msgstr "Word Frequency"
+
+#: plugins/unitexgramlab/templates/plugins/unitexgramlab/wordfreq.html:29
+msgid "Token"
+msgstr "Token \t"
+
+#: plugins/unitexgramlab/templates/plugins/unitexgramlab/wordfreq.html:32
+msgid "Frequency"
+msgstr "Frequency"
+
+#: plugins/unitexgramlab/templates/plugins/unitexgramlab/wordlist.html:15
+msgid "Word List"
+msgstr "Word List"
+
+#: plugins/unitexgramlab/templates/plugins/unitexgramlab/wordlist.html:29
+msgid "Unrecognized Token"
+msgstr "Unrecognized Tokens"
+
+#: plugins/unitexgramlab/templates/plugins/unitexgramlab/wordlist.html:51
+msgid "No unrecognized word"
+msgstr "No unrecognized word"
+
+#: plugins/unitexgramlab/templates/plugins/unitexgramlab/wordlist.html:60
+msgid "Composite Word"
+msgstr "Composite Word"
+
+#: plugins/unitexgramlab/templates/plugins/unitexgramlab/wordlist.html:63
+#: plugins/unitexgramlab/templates/plugins/unitexgramlab/wordlist.html:127
+msgid "Lemma"
+msgstr "Lemma"
+
+#: plugins/unitexgramlab/templates/plugins/unitexgramlab/wordlist.html:66
+#: plugins/unitexgramlab/templates/plugins/unitexgramlab/wordlist.html:130
+msgid "Grammar &amp; Semantics"
+msgstr "Grammar &amp; Semantics"
+
+#: plugins/unitexgramlab/templates/plugins/unitexgramlab/wordlist.html:69
+#: plugins/unitexgramlab/templates/plugins/unitexgramlab/wordlist.html:133
+msgid "Inflections"
+msgstr "Inflections"
+
+#: plugins/unitexgramlab/templates/plugins/unitexgramlab/wordlist.html:115
+#: plugins/unitexgramlab/templates/plugins/unitexgramlab/wordlist.html:179
+msgid "No composite word"
+msgstr "No composite word"
+
+#: plugins/unitexgramlab/templates/plugins/unitexgramlab/wordlist.html:124
+msgid "Simple Word"
+msgstr "Simple Word"
+
+#: plugins/unitexgramlab/views.py:87
+msgid "Arabic"
+msgstr "Arabic"
+
+#: plugins/unitexgramlab/views.py:88
+msgid "English"
+msgstr "English"
+
+#: plugins/unitexgramlab/views.py:89
+msgid "Finnish"
+msgstr "Finnish"
+
+#: plugins/unitexgramlab/views.py:90
+msgid "French"
+msgstr "French"
+
+#: plugins/unitexgramlab/views.py:91
+msgid "Georgian (Ancient)"
+msgstr "Georgian (Ancient)"
+
+#: plugins/unitexgramlab/views.py:92
+msgid "German"
+msgstr "German"
+
+#: plugins/unitexgramlab/views.py:93
+msgid "Greek (Ancient)"
+msgstr "Greek (Ancient)"
+
+#: plugins/unitexgramlab/views.py:94
+msgid "Greek (Modern)"
+msgstr "Greek (Modern)"
+
+#: plugins/unitexgramlab/views.py:95
+msgid "Italian"
+msgstr "Italian"
+
+#: plugins/unitexgramlab/views.py:96
+msgid "Korean"
+msgstr "Korean"
+
+#: plugins/unitexgramlab/views.py:97
+msgid "Latin"
+msgstr "Latin"
+
+#: plugins/unitexgramlab/views.py:98
+msgid "Malagasy"
+msgstr "Malagasy"
+
+#: plugins/unitexgramlab/views.py:99
+msgid "Norwegian (Bokmal)"
+msgstr "Norwegian (Bokmal)"
+
+#: plugins/unitexgramlab/views.py:100
+msgid "Norwegian (Nynorsk)"
+msgstr "Norwegian (Nynorsk)"
+
+#: plugins/unitexgramlab/views.py:101
+msgid "Polish"
+msgstr "Polish"
+
+#: plugins/unitexgramlab/views.py:103
+msgid "Portuguese (Portugal)"
+msgstr "Portuguese (Portugal)"
+
+#: plugins/unitexgramlab/views.py:104
+msgid "Russian"
+msgstr "Russian"
+
+#: plugins/unitexgramlab/views.py:105
+msgid "Serbian-Cyrillic"
+msgstr "Serbian (Cyrillic)"
+
+#: plugins/unitexgramlab/views.py:106
+msgid "Serbian-Latin"
+msgstr "Serbian (Latin)"
+
+#: plugins/unitexgramlab/views.py:107
+msgid "Spanish"
+msgstr "Spanish"
+
+#: plugins/unitexgramlab/views.py:108
+msgid "Thai"
+msgstr "Thai"
+
+#: plugins/unitexgramlab/views.py:148
+msgid "preprocessing_normalize_input"
+msgstr "Preprocessing: Normalizing input"
+
+#: plugins/unitexgramlab/views.py:149
+msgid "preprocessing_converting_graph"
+msgstr "Preprocessing: Converting graph"
+
+#: plugins/unitexgramlab/views.py:150
+msgid "preprocessing_flattening_graph"
+msgstr "Preprocessing: Flattening graph"
+
+#: plugins/unitexgramlab/views.py:151
+msgid "preprocessing_plainifying_graph"
+msgstr "Preprocessing: Planning graph"
+
+#: plugins/unitexgramlab/views.py:152
+msgid "preprocessing_converting_graph_again"
+msgstr "Preprocessing: Converting graph (again)"
+
+#: plugins/unitexgramlab/views.py:153
+msgid "preprocessing_flattening_graph_again"
+msgstr "Preprocessing: Flattening graph (again)"
+
+#: plugins/unitexgramlab/views.py:154
+msgid "preprocessing_extracting_tokens"
+msgstr "Preprocessing: Extracting tokens"
+
+#: plugins/unitexgramlab/views.py:155
+msgid "preprocessing_using_dictionary"
+msgstr "Preprocessing: Applying built-in dictionary over tokens"
+
+#: plugins/unitexgramlab/views.py:156
+msgid "preprocessing_sorting_text_simple"
+msgstr "Preprocessing: Sorting simple tokens"
+
+#: plugins/unitexgramlab/views.py:157
+msgid "preprocessing_sorting_text_compound"
+msgstr "Preprocessing: Sorting compound tokens"
+
+#: plugins/unitexgramlab/views.py:158
+msgid "preprocessing_sorting_text_unknown"
+msgstr "Preprocessing: Sorting unknown tokens"
+
+#: plugins/unitexgramlab/views.py:159
+msgid "preprocessing_sorting_text_unknown_unique"
+msgstr "Preprocessing: Sorting unique unknown tokens"
+
+#: plugins/unitexgramlab/views.py:160 plugins/unitexgramlab/views.py:161
+msgid "preprocessing_wordlist_parsing"
+msgstr "Preprocessing: Parsing words list"
+
+#: plugins/unitexgramlab/views.py:162
+msgid "preprocessing_wordfreq_parsing"
+msgstr "Preprocessing: Parsing words frequency"
+
+#: plugins/unitexgramlab/views.py:163
+msgid "preprocessing_sentences_parsing"
+msgstr "Preprocessing: Parsing sentences"
+
+#: plugins/unitexgramlab/views.py:164
+msgid "converting_fst_graph"
+msgstr "Sentence Automata: converting graph"
+
+#: plugins/unitexgramlab/views.py:165
+msgid "building_fst_text"
+msgstr "Sentence Automata: building text"
+
+#: plugins/unitexgramlab/views.py:166
+msgid "parsing_fst_text"
+msgstr "Sentence Automata: parsing sentence automata"
+
+#: plugins/unitexgramlab/views.py:167
+msgid "parsing_fst_tagfreq"
+msgstr "Sentence Automata: parsing tag frequency"
+
+#: plugins/unitexgramlab/views.py:168
+msgid "tagging_fst_text"
+msgstr "Sentence Automata: tagging text"
+
+#: plugins/unitexgramlab/views.py:169
+msgid "parsing_fst_text_tagged"
+msgstr "Sentence Automata: parsing tagged sentence automata"
+
+#: plugins/unitexgramlab/views.py:170
+msgid "parsing_fst_taggedfreq"
+msgstr "Sentence Automata: parsing tagged tag frequency"
+
+#: plugins/unitexgramlab/views.py:171
+msgid "seq_auto_process"
+msgstr "Text Automata: Processing"
+
+#: plugins/unitexgramlab/views.py:172
+msgid "seq_auto_parsing"
+msgstr "Text Automata: Parsing"
+
+#: secrets/active_languages.html:3
+msgid "lang__en-us"
+msgstr "American English"
+
+#: secrets/active_languages.html:4
+msgid "lang__pt-br"
+msgstr "Brazilian Portuguese"
+
+#: templates/analysis.html:8 templates/analysis.html:15
+msgid "Analysis"
+msgstr "Analysis"
+
+#: templates/base.html:2
+msgid "lang-code-iso"
+msgstr "en"
+
+#: templates/base.html:64 templates/settings/index.html:5
+#: templates/settings/index.html:9
+msgid "Settings"
+msgstr "Settings"
+
+#: templates/base.html:68 templates/settings/index.html:27
+msgid "Log out"
+msgstr "Log out"
+
+#: templates/base.html:77 templates/registration/login.html:32
+#: templates/registration/loginsignupbtn.html:3
+msgid "Sign Up"
+msgstr "Sign Up"
+
+#: templates/base.html:80 templates/index.html:66
+msgid "Log in"
+msgstr "Log in"
+
+#: templates/base.html:95
+msgid "Site handcrafted with love using Django"
+msgstr "Site handcrafted with love using Django"
+
+#: templates/base.html:98 templates/help.html:7
+msgid "Help"
+msgstr "Help"
+
+#: templates/base.html:99
+msgid "Privacy"
+msgstr "Privacy"
+
+#: templates/base.html:100
+msgid "Terms"
+msgstr "Terms"
+
+#: templates/corpus/docform.html:11 templates/corpus/docform.html:25
+#: templates/corpus/form.html:10 templates/corpus/form.html:23
+#: templates/corpus/view.html:26
+msgid "Edit"
+msgstr "Edit"
+
+#: templates/corpus/docform.html:13 templates/corpus/docform.html:27
+#: templates/corpus/form.html:12 templates/corpus/form.html:25
+msgid "Create"
+msgstr "Create"
+
+#: templates/corpus/view.html:14
+msgid "Documents of"
+msgstr "Documents of"
+
+#: templates/corpus/view.html:22
+msgid "Delete"
+msgstr "Delete"
+
+#: templates/corpus/view.html:30
+msgid "Explore"
+msgstr "Explore"
+
+#: templates/forms/crudlist.html:8
+#, python-format
+msgid ""
+"\n"
+"    %(title)s List\n"
+"    "
+msgstr ""
+"\n"
+"%(title)s List"
+
+#: templates/forms/crudlist.html:30
+msgid "Nothing to display"
+msgstr "Nothing to display"
+
+#: templates/forms/crudlist.html:44
+msgid "Add"
+msgstr "Add"
+
+#: templates/forms/form.html:9
+#, python-format
+msgid ""
+"\n"
+"    %(title)s Form\n"
+"    "
+msgstr ""
+"\n"
+"%(title)s Form"
+
+#: templates/forms/form.html:23
+msgid "Save"
+msgstr "Save \t"
+
+#: templates/help.html:10
+msgid ""
+"\n"
+"<p>\n"
+"    This platform is an academic proof-of-concept that serves the purpose of "
+"processing\n"
+"    arbitrary user-provided text, using a modular architecture. Rough edges "
+"in usability\n"
+"    may be found everywhere.\n"
+"</p>\n"
+msgstr ""
+"\n"
+"<!-- GENERIC TEXT: REWRITE ME -->\n"
+"<p>\n"
+"This platform is an academic proof-of-concept that serves the purpose of "
+"processing\n"
+"arbitrary user-provided text, using a modular architecture. Rough edges in "
+"usability\n"
+"may be found everywhere.\n"
+"</p>\n"
+
+#: templates/index.html:13 templates/index.html:49
+msgid "The corpora will appear here"
+msgstr "The corpora will appear here"
+
+#: templates/index.html:15
+msgid "after you log in"
+msgstr "after you log in"
+
+#: templates/index.html:29
+msgid "documents"
+msgstr "documents"
+
+#: templates/index.html:34
+msgid "Details"
+msgstr "Details"
+
+#: templates/index.html:39
+msgid "Created"
+msgstr "Created"
+
+#: templates/index.html:42
+msgid "Modified"
+msgstr "Modified"
+
+#: templates/index.html:51
+msgid "after you add any"
+msgstr "after you add any"
+
+#: templates/index.html:58
+msgid "Add corpus"
+msgstr "Add corpus"
+
+#: templates/index.html:77
+msgid "Welcome!"
+msgstr "Welcome!"
+
+#: templates/index.html:82
+msgid "Logged in as"
+msgstr "Logged in as"
+
+#: templates/legal/privacy.html:5 templates/legal/privacy.html:9
+#: templates/registration/registration_form.html:24
+msgid "Privacy Policy"
+msgstr "Privacy Policy"
+
+#: templates/legal/privacy.html:11
+msgid ""
+"\n"
+"<!-- PRIVACY POLICY -->\n"
+"<p>\n"
+"    All data you produce here will be stored in database; and we will make "
+"our\n"
+"    best effort to keep private the informations you store in this platform\n"
+"    while still providing authorities requested data when demanded.\n"
+"</p>\n"
+msgstr ""
+"\n"
+"<!-- PRIVACY POLICY -->\n"
+"<!-- GENERIC TEXT: REWRITE ME -->\n"
+"<p>\n"
+"All data you produce here will be stored in database; and we will make our\n"
+"best effort to keep private the informations you store in this platform\n"
+"while still providing authorities requested data when demanded.\n"
+"</p>\n"
+
+#: templates/legal/tos.html:5 templates/legal/tos.html:9
+msgid "Terms Of Service"
+msgstr "Terms Of Service"
+
+#: templates/legal/tos.html:11
+msgid ""
+"\n"
+"<!-- TERMS OF SERVICE -->\n"
+"<p>\n"
+"    In order to use this site and its services you agree that:\n"
+"</p>\n"
+"<ol>\n"
+"    <li>\n"
+"        You are at least 13 years at the present date.\n"
+"    </li>\n"
+"    <li>\n"
+"        You will be the only one to use the account you created.\n"
+"    </li>\n"
+"    <li>\n"
+"        You will respect the laws...\n"
+"    </li>\n"
+"    <ol>\n"
+"        <li>\n"
+"            You will respect the laws of your country while using this "
+"platform.\n"
+"        </li>\n"
+"        <li>\n"
+"            You will also respect brazillian laws while using this "
+"platform.\n"
+"        </li>\n"
+"        <li>\n"
+"            In case of legislation conflict, obey the legislation from your "
+"country\n"
+"            in first place.\n"
+"        </li>\n"
+"        <li>\n"
+"            Religious \"laws\" or \"principles\" are not covered.\n"
+"        </li>\n"
+"    </ol>\n"
+"    <li>\n"
+"        You are solely and entirely responsible for any damages that the "
+"content\n"
+"        created, published or distributed by your account is your entire\n"
+"        responsibility.\n"
+"    </li>\n"
+"    <li>\n"
+"        You won't take actions that knowingly overloads or makes the "
+"service\n"
+"        unavailable.\n"
+"    </li>\n"
+"</ol>\n"
+"<p>\n"
+"    About the rights of submitted content:\n"
+"</p>\n"
+"<ol>\n"
+"    <li>\n"
+"        You agree to don't use the platform to submit, share or transmit "
+"any\n"
+"        form of data that constitutes porn, gambling, drug dealing, "
+"incitement\n"
+"        to crime, incitement to suicide, warez, piracy, illegal content or "
+"hate\n"
+"        speech.\n"
+"    </li>\n"
+"    <li>\n"
+"        You agree to only submit content you have the right to do so, "
+"respecting\n"
+"        copyrights.\n"
+"    </li>\n"
+"    <li>\n"
+"        By submiting content to the platform, you agree that your content "
+"will\n"
+"        be stored, copied, distributed, indexed, processed and backed up in\n"
+"        order to keep the service available and to improve it.\n"
+"    </li>\n"
+"</ol>\n"
+"<p>\n"
+"    About the termination of the account:\n"
+"</p>\n"
+"<ol>\n"
+"    <li>\n"
+"        It won't be reversed unless facts are presented.\n"
+"    </li>\n"
+"    <li>\n"
+"        If terminated by the user, all content produced by the account will\n"
+"        remain with the same availability as before.\n"
+"    </li>\n"
+"    <li>\n"
+"        If terminated by the administrator, all content produced by the "
+"account\n"
+"        that doesn't violate the rules may remain with the same availability "
+"as\n"
+"        before; in special cases, they may be entirely deleted from the "
+"records.\n"
+"    </li>\n"
+"</ol>\n"
+"<p>\n"
+"    About the service provision:\n"
+"</p>\n"
+"<ol>\n"
+"    <li>\n"
+"        In order to access this platform it may be required some hardware "
+"and\n"
+"        software that the platform is not obliged in any way to provide.\n"
+"    </li>\n"
+"    <li>\n"
+"        The administrator of the platform is not responsible for any loss "
+"you\n"
+"        have by using it or relying on it.\n"
+"    </li>\n"
+"    <li>\n"
+"        The administration reserves the right to interrupt the service at "
+"any\n"
+"        time for any reason they consider appropriate.\n"
+"    </li>\n"
+"</ol>\n"
+msgstr ""
+"\n"
+"<!-- TERMS OF SERVICE -->\n"
+"<!-- GENERIC TEXT: REWRITE ME -->\n"
+"<p>\n"
+"In order to use this site and its services you agree that:\n"
+"</p>\n"
+"<ol>\n"
+"<li>\n"
+"You are at least 13 years at the present date.\n"
+"</li>\n"
+"<li>\n"
+"You will be the only one to use the account you created.\n"
+"</li>\n"
+"<li>\n"
+"You will respect the laws...\n"
+"</li>\n"
+"<ol>\n"
+"<li>\n"
+"You will respect the laws of your country while using this platform.\n"
+"</li>\n"
+"<li>\n"
+"You will also respect brazillian laws while using this platform.\n"
+"</li>\n"
+"<li>\n"
+"In case of legislation conflict, obey the legislation from your country\n"
+"in first place.\n"
+"</li>\n"
+"<li>\n"
+"Religious \"laws\" or \"principles\" are not covered.\n"
+"</li>\n"
+"</ol>\n"
+"<li>\n"
+"You are solely and entirely responsible for any damages that the content\n"
+"created, published or distributed by your account is your entire\n"
+"responsibility.\n"
+"</li>\n"
+"<li>\n"
+"You won't take actions that knowingly overloads or makes the service\n"
+"unavailable.\n"
+"</li>\n"
+"</ol>\n"
+"<p>\n"
+"About the rights of submitted content:\n"
+"</p>\n"
+"<ol>\n"
+"<li>\n"
+"You agree to don't use the platform to submit, share or transmit any\n"
+"form of data that constitutes porn, gambling, drug dealing, incitement\n"
+"to crime, incitement to suicide, warez, piracy, illegal content or hate\n"
+"speech.\n"
+"</li>\n"
+"<li>\n"
+"You agree to only submit content you have the right to do so, respecting\n"
+"copyrights.\n"
+"</li>\n"
+"<li>\n"
+"By submiting content to the platform, you agree that your content will\n"
+"be stored, copied, distributed, indexed, processed and backed up in\n"
+"order to keep the service available and to improve it.\n"
+"</li>\n"
+"</ol>\n"
+"<p>\n"
+"About the termination of the account:\n"
+"</p>\n"
+"<ol>\n"
+"<li>\n"
+"It won't be reversed unless facts are presented.\n"
+"</li>\n"
+"<li>\n"
+"If terminated by the user, all content produced by the account will\n"
+"remain with the same availability as before.\n"
+"</li>\n"
+"<li>\n"
+"If terminated by the administrator, all content produced by the account\n"
+"that doesn't violate the rules may remain with the same availability as\n"
+"before; in special cases, they may be entirely deleted from the records.\n"
+"</li>\n"
+"</ol>\n"
+"<p>\n"
+"About the service provision:\n"
+"</p>\n"
+"<ol>\n"
+"<li>\n"
+"In order to access this platform it may be required some hardware and\n"
+"software that the platform is not obliged in any way to provide.\n"
+"</li>\n"
+"<li>\n"
+"The administrator of the platform is not responsible for any loss you\n"
+"have by using it or relying on it.\n"
+"</li>\n"
+"<li>\n"
+"The administration reserves the right to interrupt the service at any\n"
+"time for any reason they consider appropriate.\n"
+"</li>\n"
+"</ol>\n"
+
+#: templates/registration/_password_reset_subject.txt:2
+#, python-format
+msgid "Password reset on %(site_name)s"
+msgstr "Password reset on %(site_name)s"
+
+#: templates/registration/activate.html:5
+msgid "Failed"
+msgstr "Failed \t"
+
+#: templates/registration/activate.html:9
+msgid "Account activation failed"
+msgstr "Account activation failed"
+
+#: templates/registration/activate.html:12
+msgid "The key provided wasn't be recognized."
+msgstr "The key provided wasn't be recognized."
+
+#: templates/registration/activate.html:16
+msgid "Activation key"
+msgstr "Activation key"
+
+#: templates/registration/activate.html:24
+msgid "Length"
+msgstr "Length"
+
+#: templates/registration/activation_complete.html:5
+msgid "Activated"
+msgstr "Activated"
+
+#: templates/registration/activation_complete.html:9
+msgid "Account activated"
+msgstr "Account activated"
+
+#: templates/registration/activation_complete.html:13
+msgid "Go to homepage"
+msgstr "Go to homepage"
+
+#: templates/registration/login.html:5 templates/registration/login.html:9
+#: templates/registration/login.html:21
+#: templates/registration/loginform.html:12
+msgid "Log In"
+msgstr "Log In"
+
+#: templates/registration/login.html:22
+#: templates/registration/loginform.html:14
+msgid "Forgot my password"
+msgstr "Forgot my password"
+
+#: templates/registration/login.html:29
+msgid "Don't have an account?"
+msgstr "Don't have an account?"
+
+#: templates/registration/login.html:37
+msgid "Didn't receive your activation email yet?"
+msgstr "Didn't receive your activation email yet?"
+
+#: templates/registration/login.html:40
+msgid "Resend"
+msgstr "Resend"
+
+#: templates/registration/registration_complete.html:5
+msgid "Check your mailbox"
+msgstr "Check your mailbox"
+
+#: templates/registration/registration_complete.html:9
+msgid ""
+"\n"
+"    An email containing account-activation information has been sent.\n"
+"    "
+msgstr ""
+"\n"
+"An email containing account-activation information has been sent."
+
+#: templates/registration/registration_complete.html:14
+msgid ""
+"\n"
+"    Tip: Have you checked your spam box?\n"
+"    "
+msgstr ""
+"\n"
+"Tip: Have you checked your spam box?"
+
+#: templates/registration/registration_complete.html:19
+msgid ""
+"\n"
+"    You only will be able to use your account following such instructions.\n"
+"    "
+msgstr ""
+"\n"
+"You only will be able to use your account following such instructions."
+
+#: templates/registration/registration_form.html:14
+#: templates/registration/registration_form.html:24
+msgid "I have read and agreed with the"
+msgstr "I have read and agreed with the"
+
+#: templates/registration/registration_form.html:14
+msgid "Terms of Service"
+msgstr "Terms of Service"
+
+#: templates/registration/registration_form.html:34
+msgid ""
+"\n"
+"                I agree with receiving an email in order to verify this "
+"account.\n"
+"                "
+msgstr ""
+"\n"
+"I agree with receiving an email in order to verify this account."
+
+#: templates/settings/index.html:15
+msgid "Corpora list"
+msgstr "Corpora list"
+
+#: templates/settings/index.html:21
+msgid "Change password"
+msgstr "Change password"
+
+#: templates/soon.html:5 templates/soon.html:46
+msgid "Soon"
+msgstr "Soon"
+
+#~ msgid "Portuguese"
+#~ msgstr "Portuguese"

@@ -1,0 +1,12 @@
+[Unit]
+Description=Corpus Slayer service
+After=network.target
+
+[Service]
+User=www-data
+Group=www-data
+WorkingDirectory=/var/www/corpusslayer
+ExecStart=/usr/bin/make serve
+
+[Install]
+WantedBy=multi-user.target

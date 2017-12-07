@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load url_tools %}
+{% load request_tools %}
+
+{% block title %}
+{% with request|tocorpus as corpus %}
+{% trans "Text Automata" %} | Unitex/GramLab | {{ corpus.title }} | {{ block.super }}
+{% endwith %}
+{% endblock title %}
+
+{% block content %}
+{% with request|tocorpus as corpus %}
+<h3>
+    {% trans "Text Automata" %}
+    <small class="text-muted">
+        -
+        <a class="badge badge-pill badge-light text-muted" href="{% url 'corpus' corpus.pk %}">
+            {{ corpus.title }}
+        </a>
+    </small>
+</h3>
+<br>
+<p>
+    {% blocktrans %}
+    This automata is so big and would take so much time to render that, in order
+    to prevent server overload, we will only provide you the source file, so you
+    can render the automata by yourself locally.
+    {% endblocktrans %}
+</p>
+<div>
+    <a class="btn btn-secondary" href="data:text/plain;base64,{{dotfileb64}}" download="{{corpus.title}}.gv">
+        <i class="fa fa-arrow-down" aria-hidden="true"></i>
+        Graphviz
+    </a>
+</div>
+<br>
+<p>
+    {% trans "Once downloaded in a computer which has Graphviz installed, run these three commands:" %}
+</p>
+{% for command in commands %}
+<div>
+    <code>
+        {{ command }}
+    </code>
+</div>
+{% endfor %}
+{% endwith %}
+{% endblock content %}

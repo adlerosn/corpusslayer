@@ -1,0 +1,32 @@
+{% extends "forms/form.html" %}
+
+{% load i18n %}
+{% load url_tools %}
+{% load request_tools %}
+
+{% block title %}
+{% with request|tocorpus as corpus %}
+{% with request.resolver_match.kwargs.pk|toint as doc_pk %}
+{% if doc_pk %}
+{% trans "Edit" %}
+{% else %}
+{% trans "Create" %}
+{% endif %}
+{% trans "Document" %} in {{ corpus.title }}
+ | {{ settings.SITE_NAME }}
+{% endwith %}
+{% endwith %}
+{% endblock title %}
+
+{% block h3title %}
+{% with request.resolver_match.kwargs.pk|toint as doc_pk %}
+<h3>
+    {% if doc_pk %}
+    {% trans "Edit" %}
+    {% else %}
+    {% trans "Create" %}
+    {% endif %}
+    {% trans "Document" %} {% trans "in" %} {{ form.instance.corpus.title }}
+</h3>
+{% endwith %}
+{% endblock h3title %}

@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load bootstrap_tags %}
+{% load humanize %}
+{% block content %}
+<div class="row row-offcanvas row-offcanvas-right">
+    <div class="col-sm-8 row">
+        <div class="col-sm-12">
+        </div>
+        <div class="col-sm-12 text-center">
+            {% if loginform %}
+            <i class="text-muted">
+                {% trans "The corpora will appear here" %}
+                <br>
+                {% trans "after you log in" %}
+            </i>
+            {% else %}
+            {% if corpora %}
+            <div class="d-flex flex-wrap justify-content-around">
+                {% for corpus in corpora %}
+                <div class="p-2">
+                    <div class="card" style="width: 20rem; overflow-x: hidden; overflow-y: hidden;">
+                        <div class="text-center">
+                            <h4 class="card-title">
+                                {{ corpus.title }}
+                            </h4>
+                        </div>
+                        <p class="card-text">
+                            {{ corpus.documents.count }} {% trans "documents" %}
+                        </p>
+                    </div>
+                    <div class="card-footer text-muted bg-success">
+                        <a class="bg-success text-white btn btn-success" href="{% url 'corpus' corpus.pk %}">
+                            {% trans "Details" %}
+                            <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                    <div class="card-footer text-muted">
+                        {% trans "Created" %} {{ corpus.created | naturaltime }}
+                    </div>
+                    <div class="card-footer text-muted">
+                        {% trans "Modified" %} {{ corpus.modifiedWithChild | naturaltime }}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <i class="text-muted">
+                {% trans "The corpora will appear here" %}
+                <br>
+                {% trans "after you add any" %}
+            </i>
+            {% endif %}
+            <br>
+            <br>
+            <a class="btn btn-outline-success" href="{% url 'corpus_edt' 0 %}">
+                <i class="fa fa-plus" aria-hidden="true"></i>
+                {% trans "Add corpus" %}
+            </a>
+            {% endif %}
+        </div>
+    </div>
+    <div class="col-sm-3 sidebar-offcanvas jumbotron">
+        {% if loginform %}
+        <h3>
+            {% trans "Log in" %}
+        </h3>
+        <hr>
+        {% with loginform as form %}
+        {% with 'btn-block' as loginbtnextraclasses %}
+        {% include 'registration/loginform.html' %}
+        {% include 'registration/loginsignupbtn.html' %}
+        {% endwith %}
+        {% endwith %}
+        {% else %}
+        <h3>
+            {% trans "Welcome!" %}
+        </h3>
+        <p class="text-right">
+            <small class="text-muted">
+                <i>
+                    {% trans "Logged in as" %}
+                </i>
+                {{ user.username }}
+            </small>
+        </p>
+        {% endif %}
+    </div>
+</div>
+{% endblock content %}

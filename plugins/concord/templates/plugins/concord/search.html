@@ -1,0 +1,437 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load url_tools %}
+{% load request_tools %}
+
+{% block title %}
+{% with request|tocorpus as corpus %}
+{% trans "Concordancer" %} | {{ corpus.title }} | {{ block.super }}
+{% endwith %}
+{% endblock title %}
+
+{% load bootstrap_tags %}
+{% block content %}
+{% with request|tocorpus as corpus %}
+<h3>
+    {% trans "Concordancer" %}
+    <small class="text-muted">
+        -
+        <a class="badge badge-pill badge-light text-muted" href="{% url 'corpus' corpus.pk %}">
+            {{ corpus.title }}
+        </a>
+    </small>
+</h3>
+<form method="post">
+    {% csrf_token %}
+    {{ form | as_bootstrap }}
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">
+            {% trans "Search" context "action" %}
+        </button>
+    </div>
+</form>
+<div>
+    <h6>
+        {% trans "Decomposing query" %}
+    </h6>
+    <p id="explain-box">
+        <i class="text-muted">
+            {% trans "Waiting jQuery..." %}
+        </i>
+    </p>
+</div>
+<script defer>
+//https://stackoverflow.com/a/6234804
+function escapeHtml(unsafe) {
+    return unsafe
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+if (!String.prototype.html) {
+    String.prototype.html = function(){
+        return escapeHtml(this);
+    }
+}
+function backslashUnescaper(str){
+    var escape = false
+    var escaped = ''
+    for(var char of str){
+        if(escape){
+            escape=false;
+            escaped+=char;
+        }else{
+            if(char==='\\'){
+                escape=true;
+            }else{
+                escaped+=char;
+            }
+        }
+    }
+    return escaped
+}
+function backslashRemovingEscaped(str){
+    var escape = false
+    var escaped = ''
+    for(var char of str){
+        if(escape){
+            escape=false;
+        }else{
+            if(char==='\\'){
+                escape=true;
+            }else{
+                escaped+=char;
+            }
+        }
+    }
+    return escaped
+}
+function interpretRange(str, conc){
+    var conclusion={
+        type:'fragment',
+        text:[]
+    }
+    if(typeof(conc)!=='undefined'){
+        conclusion = conc
+    }
+    conclusion['type']='skip';
+    var range = str.substr(1,str.length-2).split(',').slice(0, 2).map((n)=>parseInt(n));
+    if(
+        range.length>1
+        &&
+        (
+            range[0]==range[1]
+            ||
+            (
+                isNaN(range[0])
+                &&
+                isNaN(range[1])
+            )
+        )
+    ){
+        range.pop();
+    };
+    if(range.length==1 && isNaN(range[0])){
+        range.unshift(NaN);
+    }
+    if(range.length>1){
+        conclusion['type']+='range'
+    };
+    for(var i = 0; i<range.length; i++){
+        if(isNaN(range[i]))
+        range[i]='any';
+    }
+    if(range.length>1 && range[0]==='any'){
+        range[0] = 0;
+    }
+    conclusion['text'] = range;
+    return conclusion
+}
+querybox = null;
+explainbox = null;
+function tryUnderstandingQuery(){
+    var typed = querybox[0].value;
+    if(typed===''){
+        explainbox[0].innerHTML='<i class="text-muted">{% trans "Waiting your input" %}</i>';
+    }else{
+        explainbox[0].innerHTML='{% trans "Processing..." %}'.html();
+        parts = typed.split(' ').filter((a)=>{return a!==''}).map((a)=>{return a.split('__')});
+        for(var part_ndx in parts){
+            var text = parts[part_ndx][0];
+            var visible = backslashRemovingEscaped(text)
+            var conclusion = {
+                type:'plain',
+                text:[backslashUnescaper(text)]
+            };
+            if(text.indexOf('..')>=0){
+                var begin = text.match(/^([^.]+)\.\./);
+                var middle = text.match(/\.\.([^.]+)\.\./);
+                var end = text.match(/\.\.([^.]+)$/);
+                conclusion['type']='fragment';
+                conclusion['text']=[];
+                if(begin)
+                conclusion['text'].push(['{% trans "starts with" %}',backslashUnescaper(begin[1])]);
+                if(middle)
+                conclusion['text'].push(['{% trans "contains" %}',backslashUnescaper(middle[1])]);
+                if(end)
+                conclusion['text'].push(['{% trans "ends with" %}',backslashUnescaper(end[1])]);
+            }else if(visible.startsWith('{') && visible.endsWith('}')){
+                interpretRange(visible,conclusion);
+            }
+            //else if(text.indexOf('?U')>=0||text.indexOf('?L')>=0){
+            // conclusion['type']='cases';
+            // conclusion['text']=[];
+            // var remain = text;
+            // var regex = /\?([UL])({[0-9,* ]+})?/;
+            // while(remain.length>0){
+            // nextMatch = remain.match(regex)
+            // if(nextMatch){
+            // var toConsume = remain.indexOf(nextMatch[0])
+            // if(toConsume>0){
+            // conclusion['text'].push([
+            // 'plain',
+            // backslashUnescaper(remain.substr(0,toConsume))
+            // ]);
+            // remain = remain.substring(toConsume);
+            // }
+            // var tcase = nextMatch[1]=='U'?'{% trans "uppercase" %}':'{% trans "lowercase" %}';
+            // var irange = interpretRange('{1}');
+            // if(nextMatch[2]){
+            // irange = interpretRange(nextMatch[2]);
+            // }
+            // conclusion['text'].push([
+            // 'casefind',
+            // tcase,
+            // irange['text']
+            // ]);
+            // remain = remain.substring(nextMatch[0].length);
+            // }else{
+            // conclusion['text'].push([
+            // 'plain',
+            // backslashUnescaper(remain)
+            // ]);
+            // remain = ''
+            // }
+            // }
+            // }
+            parts[part_ndx][0] = conclusion;
+        }
+        var rend = ''
+        var containErrors = false;
+        rend+= '<div style="font-family: monospace; font-size: 150%;">'
+        for(var part of parts){
+            rend+='<span class="badge badge-dark">';
+            var printingFirst = true
+            for(var subpart of part){
+                var needsClosing = true;
+                if(!printingFirst){
+                    rend+='<span class="badge badge-pill badge-info">';
+                    rend+=subpart.html();
+                }else{
+                    if(subpart.type=='plain'){
+                        rend+='<span class="badge badge-pill badge-warning">';
+                        rend+='{% trans "is" %} ';
+                        rend+='<span class="badge badge-pill badge-light">';
+                        rend+=subpart.text[0].html();
+                        rend+='</span> ';
+                    }
+                    else if(subpart.type=='fragment'){
+                        for(var condition of subpart.text){
+                            rend+='<span class="badge badge-pill badge-warning">';
+                            rend+=condition[0].html()+' ';
+                            rend+='<span class="badge badge-pill badge-light">';
+                            rend+=condition[1].html()+' ';
+                            rend+='</span> ';
+                            rend+='</span> ';
+                        }
+                        needsClosing = false;
+                    }
+                    else if(subpart.type=='skip'){
+                        rend+='<span class="badge badge-pill badge-warning">';
+                        rend+='{% trans "skip" %} ';
+                        rend+='<span class="badge badge-pill badge-light">';
+                        rend+=subpart.text;
+                        rend+='</span> ';
+                        rend+='tokens ';
+                    }
+                    else if(subpart.type=='skiprange'){
+                        rend+='<span class="badge badge-pill badge-warning">';
+                        rend+='{% trans "skip from" %} ';
+                        rend+='<span class="badge badge-pill badge-light">';
+                        rend+=subpart.text[0];
+                        rend+='</span> ';
+                        rend+='{% trans "until" %} ';
+                        rend+='<span class="badge badge-pill badge-light">';
+                        rend+=subpart.text[1];
+                        rend+='</span> ';
+                        rend+='{% trans "tokens" %} ';
+                    }
+                    else if(subpart.type=='cases'){
+                        rend+='<span class="badge badge-pill badge-secondary">';
+                        var i = 0;
+                        for(var container of subpart.text){
+                            if(container[0]==='plain'){
+                                var rendBuf='<span class="badge badge-pill badge-warning">';
+                                if(i==0){
+                                    rendBuf+='{% trans "starts with" %} ';
+                                }
+                                else if(i+1==subpart.text.length){
+                                    rendBuf+='{% trans "ends with" %} ';
+                                }
+                                else{
+                                    rendBuf='<span class="badge badge-pill badge-danger">'
+                                    rendBuf+='??? ';
+                                    containErrors = true;
+                                }
+                                rend+=rendBuf;
+                                rend+='<span class="badge badge-pill badge-light">';
+                                rend+=container[1].html();
+                                rend+='</span> ';
+                                rend+='</span> ';
+                            }else{
+                                rend+='<span class="badge badge-pill badge-warning">';
+                                var consume = container[2];
+                                var range = container[2].length>1;
+                                if(range){
+                                    rend+='{% trans "take from" %} '
+                                    rend+='<span class="badge badge-pill badge-light">';
+                                    rend+=consume[0];
+                                    rend+='</span> ';
+                                    rend+='{% trans "until" %} '
+                                    rend+='<span class="badge badge-pill badge-light">';
+                                    rend+=consume[1];
+                                    rend+='</span> ';
+                                }else{
+                                    rend+='{% trans "take exactly" %} '
+                                    rend+='<span class="badge badge-pill badge-light">';
+                                    rend+=consume[0];
+                                    rend+='</span> ';
+                                }
+                                rend+=container[1].html();
+                                rend+=' {% trans "chars" %} ';
+                                rend+='</span> ';
+                            }
+                            i++;
+                        }
+                    }
+                    else{
+                        rend+='<span class="badge badge-pill badge-light">';
+                        rend+=JSON.stringify(subpart).html();
+                    }
+                }
+                if(needsClosing)
+                rend+='</span> ';
+                printingFirst = false;
+            }
+            rend+='</span> ';
+        }
+        rend+= '</div>'
+        if(containErrors){
+            rend2 = '';
+            rend2+= '<div class="alert alert-danger" role="alert">';
+            rend2+= '{% trans "Errors have been found. They are marked in red." %}';
+            rend2+= '</div>';
+            rend = rend2+rend;
+        }
+        explainbox[0].innerHTML=rend;
+    }
+}
+function init_preview(){
+    querybox = jQuery('#id_query');
+    explainbox = jQuery('#explain-box');
+    querybox.keyup(tryUnderstandingQuery);
+    setTimeout(tryUnderstandingQuery,100);
+}
+function init_wait(){
+    if(typeof(jQuery)==='undefined'){
+        setTimeout(function(){init_wait();},100);
+    }else{
+        init_preview()
+    }
+}
+init_wait();
+</script>
+<div>
+    <h6>
+        {% trans "Query help" %}
+    </h6>
+    <p>
+        {% trans "Check the table below:" %}
+    </p>
+    <div>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>{% trans "Query" %}</th>
+                    <th>{% trans "Meaning" %}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>abc</code></td>
+                    <td>{% trans 'Text is "abc"' %}</td>
+                </tr>
+                <tr>
+                    <td><code>\\</code></td>
+                    <td>{% trans 'Text is "\"' %}</td>
+                </tr>
+                <tr>
+                    <td><code>.\.\.</code></td>
+                    <td>{% trans 'Text is "..."' %}</td>
+                </tr>
+                <tr>
+                    <td><code>abc def</code></td>
+                    <td>{% trans 'The first text is "abc" and the second is "def"' %}</td>
+                </tr>
+                <tr>
+                    <td><code>abc {1} def</code></td>
+                    <td>{% trans 'The first text is "abc", the second can be anything and the third is "def"' %}</td>
+                </tr>
+                <tr>
+                    <td><code>abc \{1} def</code></td>
+                    <td>{% trans 'The first text is "abc", the second is "{1}" and the third is "def"' %}</td>
+                </tr>
+                <tr>
+                    <td><code>abc {0,*} def</code></td>
+                    <td>{% trans 'The first text is "abc", the second can be anything but does not necessarity exists and the last is "def"' %}</td>
+                </tr>
+                <tr>
+                    <td><code>abc {1,*} def</code></td>
+                    <td>{% trans 'The first text is "abc", the second can be anything and necessarity exists at least one and the last is "def"' %}</td>
+                </tr>
+                <!-- <tr> -->
+                <!-- <td><code>?U{1,*}</code></td> -->
+                <!-- <td>{% trans "Matches words typed in all uppercase" %}</td> -->
+                <!-- </tr> -->
+                <!-- <tr> -->
+                <!-- <td><code>?U{1}?L{1,*}</code></td> -->
+                <!-- <td>{% trans "Matches with an uppercase letter followed by a non-empty sequence of lowercase letters" %}</td> -->
+                <!-- </tr> -->
+                <tr>
+                    <td><code>abc..</code></td>
+                    <td>{% trans 'Text starts with "abc"' %}</td>
+                </tr>
+                <tr>
+                    <td><code>abc.\.</code></td>
+                    <td>{% trans 'Text is "abc.."' %}</td>
+                </tr>
+                <tr>
+                    <td><code>..xyz</code></td>
+                    <td>{% trans 'Text ends with "xyz"' %}</td>
+                </tr>
+                <tr>
+                    <td><code>..jkl..</code></td>
+                    <td>{% trans 'Text contains "jkl"' %}</td>
+                </tr>
+                <tr>
+                    <td><code>abc..jkl..xyz</code></td>
+                    <td>{% trans 'Text starts with "abc", contains "jkl" and ends with "xyz"' %}</td>
+                </tr>
+                <tr>
+                    <td><code>_\_</code></td>
+                    <td>{% trans "This matches a word is a double underscore" %}</td>
+                </tr>
+                <tr>
+                    <td><code>__</code></td>
+                    <td>{% trans "The double underscore sepparates the word part from tag part" %}</td>
+                </tr>
+                <tr>
+                    <td><code>__V</code></td>
+                    <td>{% trans 'Matches any word that is tagged as "V"' %}</td>
+                </tr>
+                <tr>
+                    <td><code>mate__V</code></td>
+                    <td>{% trans 'Matches the word "mate" when it is tagged as "V"' %}</td>
+                </tr>
+                <tr>
+                    <td><code>mate__V__N</code></td>
+                    <td>{% trans 'Matches the word "mate" when it is tagged as "V" or "N"' %}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endwith %}
+{% endblock content %}
