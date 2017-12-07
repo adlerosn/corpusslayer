@@ -5,6 +5,6 @@ secrets/**
 **/__pycache__
 **/*.pyc
 **/*~
-static
-static/**
+/static
+/static/**
 .tags
