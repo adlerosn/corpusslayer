@@ -1,6 +1,6 @@
 db.sqlite3
-secrets
-secrets/**
+server_secrets
+server_secrets/**
 **/__pycache__/**
 **/__pycache__
 **/*.pyc
@@ -8,3 +8,5 @@ secrets/**
 /static
 /static/**
 .tags
+virtual_env
+virtual_env/**

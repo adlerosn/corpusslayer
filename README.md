@@ -22,7 +22,7 @@ Finally run `make serve`. You may now be able to access the application through 
 
 Trying to give people as much freedom to do whatever they want to the code, the license chosen was the MIT.
 
-Notice that the MIT license only applies to the base platform and plug-ins received as is. When running `make all`, `make build` or `make deploy-ci`, it's expected that you will download MXPOST (proprietary license), TreeTagger (proprietary license), Unitex/GramLab (GNU LGPL v2.1) and Mac-Morpho (CC-BY-4.0); where some of those are incompatible with MIT license and may impose restrictions on how you will use or redistribute the platform - you are welcomed to contribute by writing a plug-in to replace those proprietary parts.
+Notice that the MIT license only applies to the base platform and plug-ins received as is. When running `make all`, `make build` or `make deploy-cd`, it's expected that you will download MXPOST (proprietary license), TreeTagger (proprietary license), Unitex/GramLab (GNU LGPL v2.1) and Mac-Morpho (CC-BY-4.0); where some of those are incompatible with MIT license and may impose restrictions on how you will use or redistribute the platform - you are welcomed to contribute by writing a plug-in to replace those proprietary parts.
 
 ## Translations
 

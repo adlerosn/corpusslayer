@@ -38,7 +38,7 @@ from django.core.paginator import Paginator
 from application import views as ctrl
 from application import forms
 
-from secrets.hookModules import hookModules
+from server_secrets.hookModules import hookModules
 analysisOptions = list()
 for module in hookModules:
     if hasattr(module, 'getAnalysisOptions'):
@@ -257,3 +257,44 @@ class AnalysisView(TemplateView):
             'corpus_pk': pk,
             'tools': analysisOptions,
         })
+
+import json
+from urllib.request import urlopen
+
+class ServerStatsView(TemplateView):
+    template_name = 'server-stats.html'
+    def get(self, request):
+        stats = json.loads(ServerStatsJsonGetter(request).content.decode())
+        processed_stats = dict()
+        processed_stats['workers_total'] = 0
+        processed_stats['workers_busy'] = 0
+        processed_stats['workers_accepting_connections'] = 0
+        processed_stats['threads_total'] = 0
+        processed_stats['threads_busy'] = 0
+        processed_stats['requests_processed'] = 0
+        processed_stats['requests_processing'] = 0
+        for worker in stats['workers']:
+            processed_stats['workers_total']+=1
+            processed_stats['workers_accepting_connections']+= int(bool(worker['accepting']))
+            processed_stats['workers_busy']+=int(worker['status']=='busy')
+            for thread in worker['cores']:
+                processed_stats['threads_total']+=1
+                processed_stats['threads_busy']+=int(bool(thread['in_request']))
+            processed_stats['requests_processed']+=worker['requests']
+        processed_stats['requests_processing']=processed_stats['threads_busy']
+        processed_stats['workers_busy_pct'] = 100*processed_stats['workers_busy']/processed_stats['workers_total']
+        processed_stats['workers_avail_pct'] = 100*processed_stats['workers_accepting_connections']/processed_stats['workers_total']
+        processed_stats['threads_busy_pct'] = 100*processed_stats['threads_busy']/processed_stats['threads_total']
+        return render(request, self.template_name, {
+            'stats':processed_stats,
+        })
+
+def ServerStatsJsonGetter(request):
+    with urlopen('http://127.0.0.1:14549') as urlstream:
+        return HttpResponse(
+            json.dumps(
+                json.loads(urlstream.read().decode()),
+                indent=4
+            ),
+            content_type='application/json'
+        )

@@ -1,0 +1,167 @@
+AARTS, J.; GRANGER, S. Tag sequences in learner corpora: A key to interlanguage grammar
+and discourse. Learner English on computer, London: Longman, v. 132, p. 141, 1998.
+
+AIRES, R. V. X. Implementaçao, adaptaçao, combinação e avaliação de etiquetadores para o
+português do Brasil. 154 p. Tese (Doutorado) — Universidade de São Paulo, São Carlos, 2000.
+Disponível em: <http://www.teses.usp.br/teses/disponiveis/55/55134/tde-28042016-090039/
+pt-br.php>.
+
+ALUÍSIO, S. M.; ALMEIDA, G. M. de B. O que é e como se constrói um corpus? lições
+aprendidas na compilação de vários corpora para pesquisa linguística. Calidoscópio, v. 4, n. 3, p.
+156–178, 2006.
+
+ANTHONY, L. A critical look at software tools in corpus linguistics. Linguistic Research, v. 30,
+n. 2, p. 141–161, 2013.
+
+ANTHONY, L. AntCorGen. Tokyo: [s.n.], 2017. 1–4 p. Disponível em: <http:
+//www.laurenceanthony.net/software/antcorgen/releases/AntCorGen101/help.pdf>.
+
+ARANHA, C.; PASSOS, E. A tecnologia de mineraçao de textos. Revista Eletrônica de Sistemas
+de Informação ISSN 1677-3071 doi: 10.21529/RESI, v. 5, n. 2, 2006.
+
+BEITZEL, S. M. On understanding and classifying web queries. Evaluation, n. May, p. 96, 2006.
+
+BIBER, D. Dimensions of register variation: A cross-linguistic comparison. [S.l.]: Cambridge
+University Press, 1995.
+
+BICK, E. The parsing system palavras. Automatic Grammatical Analysis of Portuguese in a
+Constraint Grammar Framework, University of Arhus, 2000.
+
+BRASIL. Princípios, garantias, direitos e deveres para o uso da internet no brasil. Brasília, DF,
+abr 2014. Disponível em: <http://www.planalto.gov.br/ccivil_03/_ato2011-2014/2014/lei/
+l12965.htm>. Acesso em: 4 dez. 2017.
+
+BRUCKSCHEN, M. RECONHECIMENTO DE ENTIDADES NOMEADAS E RELAÇÕES NO
+DOMÍNIO, DE PRIVACIDADE, E RESPONSABILIZAÇÃO. Tese (Doutorado) — Pontifícia
+Universidade Católica do Rio Grande do Sul, 2010.
+
+CAMBRIA, E.; WHITE, B. Jumping nlp curves: a review of natural language processing
+research [review article]. IEEE Computational Intelligence Magazine, IEEE, v. 9, n. 2, p. 48–57,
+2014.
+
+CETIC.BR. Pesquisa sobre o uso das tecnologias de informação e comunicação nas escolas
+brasileiras - tic educação 2015. 2016. Disponível em: <http://nic.br/media/docs/publicacoes/2/
+TIC_Edu_2015_LIVRO_ELETRONICO.pdf>. Acesso em: 22 nov. 2016.
+
+CHAVES, H.; MELLO, H. Sistema identificador de sintagmas verbais do pb. In: Anais do
+Congresso Nacional de Estudos Linguísticos-CONEL. [S.l.: s.n.], 2014. v. 1, n. 2.
+
+Django Software Foundation. Django em um relance. 2018. Disponível em: <https:
+//docs.djangoproject.com/pt-br/2.0/intro/overview/>. Acesso em: 25 jan. 2018.53
+
+DUBOIS, J. et al. Dicionário de lingüística. [S.l.]: Cultrix, 1993.
+
+ELMASRI, R.; NAVATHE, S. B. Sistemas de banco de dados. Trad. 6 ed. São Paulo: Pearson,
+2012. ISBN 978-85-7936-085-5.
+
+FREE SOFTWARE FOUNDATION. GNU Lesser General Public License. 1999. Disponível
+em: <https://spdx.org/licenses/LGPL-2.1.html>.
+
+GAGNON, M. Processamento da Linguagem Natural. 2000.
+
+GALISSON, R.; COSTE, D. Dicionário de didáctica das línguas. [S.l.: s.n.], 1983.
+
+GANDY, D. Font Awesome, the iconic font and CSS toolkit. 2017. Disponível em:
+<http://fontawesome.io/>. Acesso em: 3 dez. 2017.
+
+GRIES, S. T. Useful statistics for corpus linguistics. A mosaic of corpus linguistics: Selected
+approaches, Peter Lang Frankfurt, Germany, v. 66, p. 269–291, 2010.
+
+KRUG, S. Não me Faça Pensar: uma abordagem de bom senso e usabilidade. 2 a . ed. Rio de
+Janeiro: Alta Books, 2008. 224 p. ISBN 0-321-34475-8.
+
+KUROSE, J. F.; ROSS, K. W. Redes de Computadores e a Internet: Uma abordagem top-down.
+Trad. 6 ed. São Paulo: Pearson, 2013. ISBN 978-85-8143-677-7.
+
+LINGUATECA. Floresta Sinta(c)tica: breve descrição dos corpora. 2009. Disponível em:
+<http://www.linguateca.pt/Floresta/corpus.html>. Acesso em: 8 jan. 2018.
+
+LINGUATECA. Glossário de etiquetas florestais. 2010. Disponível em: <http:
+//www.linguateca.pt/Floresta/BibliaFlorestal/anexo1.html>. Acesso em: 27 jan. 2018.
+
+LINGUATECA. Projecto Floresta Sinta(c)tica. 2010. Disponível em: <http://www.linguateca.
+pt/Floresta/principal.html>. Acesso em: 8 jan. 2018.
+
+LINGUATECA. Levantamento integral da Floresta Sintáctica. 2016. Disponível em:
+<http://www.linguateca.pt/Floresta/levantamento.html>. Acesso em: 8 jan. 2018.
+
+MEUSEL, R. et al. The graph structure in the web – analyzed on different aggregation
+levels. The Journal of Web Science, v. 1, n. 1, p. 33–47, 2015. Disponível em:
+<http://dx.doi.org/10.1561/106.00000003>.
+
+Microsoft. Using Python Scripts with IIS. 2017. Disponível em: <https://support.microsoft.com/
+en-ie/help/276494/using-python-scripts-with-iis>. Acesso em: 25 jan. 2018.
+
+MUNIZ, M. C.; NUNES, M. D. G. V.; LAPORTE, E. UNITEX-PB, a set of flexible
+language resources for Brazilian Portuguese. In: Workshop on Technology on Information and
+Human Language (TIL). São Leopoldo, Brazil: [s.n.], 2005. p. 2059–2068. Disponível em:
+<https://halshs.archives-ouvertes.fr/halshs-00190857>.
+
+MUNIZ, M. C.; NUNES, M. D. G. V.; LAPORTE, E. UNITEX-PB, a set of flexible
+language resources for Brazilian Portuguese. In: Workshop on Technology on Information and
+Human Language (TIL). São Leopoldo, Brazil: [s.n.], 2005. p. 2059–2068. Disponível em:
+<https://halshs.archives-ouvertes.fr/halshs-00190857>.
+
+NADEAU, D.; SEKINE, S. A survey of named entity recognition and classification. Lingvisticae
+Investigationes, John Benjamins publishing company, v. 30, n. 1, p. 3–26, 2007.54
+
+Núcleo Interinstitucional de Lingúistica Computacional. NILCTaggers. 2012. Disponível em:
+<http://www.nilc.icmc.usp.br/nilc/tools/nilctaggers.html>. Acesso em: 20 jan. 2018.
+
+OLIVEIRA, L. P. d. Linguística de corpus: teoria, interfaces e aplicações. 2009.
+
+O’NEIL, E. J. Object/relational mapping 2008: Hibernate and the entity data model (edm). In:
+Proceedings of the 2008 ACM SIGMOD International Conference on Management of Data.
+New York, NY, USA: ACM, 2008. (SIGMOD ’08), p. 1351–1356. ISBN 978-1-60558-102-6.
+Disponível em: <http://doi.acm.org/10.1145/1376616.1376773>.
+
+PAUMIER, S. Unitex 3.1 user manual. 2016.
+
+POWERS, D. Evaluation: From Precision, Recall and F-Measure To Roc, Informedness,
+
+Markedness & Correlation. Journal of Machine Learning Technologies, v. 2, n. 1, p. 37–63,
+2011. ISSN 2229-3981. Disponível em: <http://www.bioinfopublication.org/files/articles/2{\_
+}1{\_}1{\_}.>
+
+RIJSBERGEN, C. J. van. Information Retrieval. 2 a . ed. London: Butterworth-Heinemann, 1979.
+
+SARDINHA, T. B. Lingüística de corpus: histórico e problemática. Delta, SciELO Brasil, v. 16,
+n. 2, p. 323–367, 2000.
+
+SILVA, T. J. d. Indexação automática por meio da extração e seleção de sintagmas nominais em
+textos em língua portuguesa 2014. Tese (Doutorado) — Dissertação (Mestrado)–Departamento
+de Ciência da Informação, Universidade Federal de Pernambuco–UFPE, Recife, 2014. 219 f.
+
+SINCLAIR, J. Corpus and text-basic principles. Developing linguistic corpora: A guide to good
+practice, Oxbow Books Oxford, p. 1–16, 2005.
+
+SOMMERVILLE, I. Software Engineering. Pearson, 2011. (International Computer Science
+Series). ISBN 9780137053469. Disponível em: <https://books.google.com.br/books?id=
+l0egcQAACAAJ>.
+
+TAGNIN, S. E. Glossário de linguística de corpus. São Paulo: HUB Editorial, 2010.
+
+The Apache Software Foundation. Dynamic Content with CGI. 2018. Disponível em:
+<https://httpd.apache.org/docs/2.4/howto/cgi.html>. Acesso em: 25 jan. 2018.
+
+The Linux Information Project. Dumb Terminal Definition. 2005. Disponível em:
+<http://www.linfo.org/dumb_terminal.html>. Acesso em: 23 jan. 2018.
+
+The SQLite Consortium. About SQLite. 2018. Disponível em: <https://www.sqlite.org/about.
+html>. Acesso em: 26 jan. 2018.
+
+THIELE, P. F. O. Desambiguação de anotações morfossintáticas feitas por MTMDD.
+Dissertação (Mestrado) — Pontifícia Universidade Católica do Rio Grande do Sul, 2015.
+
+TRASK, R. L. et al. Dicionário de linguagem e lingüística. [S.l.]: Editora Contexto, 2004.
+
+UNIVERSIDADE DE LISBOA, DEPT. DE INFORMáTICA, GRUPO DE FALA
+E LINGUAGEM NATURAL. LX-Parser License. 2010. Disponível em: <http:
+//lxcenter.di.fc.ul.pt/tools/en/conteudo/LX-Parser_License.pdf>.
+
+UNIVERSITé PARIS-EST MARNE-LA-VALLéE. Lesser General Public License For
+Linguistic Resources. 2009. Disponível em: <https://spdx.org/licenses/LGPLLR.html>.55
+
+VIEIRA, R.; LIMA, V. L. Lingüística computacional: princípios e aplicações. In: SN. Anais do
+XXI Congresso da SBC. I Jornada de Atualização em Inteligência Artificial. [S.l.], 2001. v. 3, p.
+47–86.

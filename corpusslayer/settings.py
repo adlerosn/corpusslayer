@@ -13,6 +13,15 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 from django.utils.translation import ugettext_lazy as _
 
 import os
+import sys
+
+proj_b_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if proj_b_dir not in sys.path:
+    sys.path.insert(0, proj_b_dir)
+if proj_b_dir not in os.environ['PATH']:
+    os.environ['PATH']+=':'+proj_b_dir
+del proj_b_dir
+
 from corpusslayer import fsconfig
 from corpusslayer import fsplugin
 
@@ -171,7 +180,7 @@ if DEBUG and DEVELOPING:
 
 DEFAULT_FROM_EMAIL = SITE_NAME+' <noreply@'+fsconfig.SITE_DOMAIN+'>'
 
-from secrets.mailconfig import *
+from server_secrets.mailconfig import *
 
 SETTINGS_EXPORT = [
     'SITE_NAME',

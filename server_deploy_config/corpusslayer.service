@@ -7,6 +7,7 @@ User=www-data
 Group=www-data
 WorkingDirectory=/var/www/corpusslayer
 ExecStart=/usr/bin/make serve
+KillSignal=SIGINT
 
 [Install]
 WantedBy=multi-user.target

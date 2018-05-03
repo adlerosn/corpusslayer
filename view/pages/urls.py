@@ -17,7 +17,7 @@ from django.conf.urls import url
 from django.conf.urls import include
 from view.pages import views
 import registration.backends.default.urls as registration_urls
-import secrets.pluginUrls as plugin_urls
+import server_secrets.pluginUrls as plugin_urls
 
 urlpatterns = [
     url(r'^accounts/', include(registration_urls)),
@@ -38,7 +38,9 @@ urlpatterns = [
     url(r'^document/(?P<pk>[0-9]+)/del/?$', views.DocumentDelView.as_view(), name='document_del'),
     url(r'^document/(?P<ppk>[0-9]+)-(?P<pk>[0-9]+)/del/?$', views.DocumentDelView.as_view(), name='document_del'),
 
+    url(r'^server-stats$', views.ServerStatsView.as_view(), name='server_stats'),
+    #url(r'^server-stats\.json$', views.ServerStatsJsonGetter, name='server_stats_json'),
+
     url(r'^analysis\.(?P<pk>[0-9]+)$', views.AnalysisView.as_view(), name='analysis'),
     url(r'^analysis\.(?P<corpus_pk>[0-9]+)/', include(plugin_urls)),
-
 ]

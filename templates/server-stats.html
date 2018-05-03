@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<h5>
+    {% trans "Workers available for new connections" %}
+</h5>
+<div class="progress">
+     <div class="progress-bar" role="progressbar" style="width: {{stats.workers_avail_pct}}%" aria-valuenow="{{stats.workers_accepting_connections}}" aria-valuemax="{{stats.workers_total}}" aria-valuemin="0">
+         {{stats.workers_accepting_connections}}
+         {% trans "of" %}
+         {{stats.workers_total}}
+     </div>
+</div>
+<hr>
+<h5>
+    {% trans "Workers busy" %}
+</h5>
+<div class="progress">
+     <div class="progress-bar" role="progressbar" style="width: {{stats.workers_busy_pct}}%" aria-valuenow="{{stats.workers_busy}}" aria-valuemax="{{stats.workers_total}}" aria-valuemin="0">
+         {{stats.workers_busy}}
+         {% trans "of" %}
+         {{stats.workers_total}}
+     </div>
+</div>
+<hr>
+<h5>
+    {% trans "Threads busy" %}
+</h5>
+<div class="progress">
+     <div class="progress-bar" role="progressbar" style="width: {{stats.threads_busy_pct}}%" aria-valuenow="{{stats.threads_busy}}" aria-valuemax="{{stats.threads_total}}" aria-valuemin="0">
+         {{stats.threads_busy}}
+         {% trans "of" %}
+         {{stats.threads_total}}
+     </div>
+</div>
+<hr>
+<h5>
+    Table
+</h5>
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Aspect</th>
+                <th>Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    {% trans "Total workers" %}
+                </td>
+                <td>
+                    {{stats.workers_total}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {% trans "Busy workers" %}
+                </td>
+                <td>
+                    {{stats.workers_busy}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {% trans "Workers accepting connections" %}
+                </td>
+                <td>
+                    {{stats.workers_accepting_connections}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {% trans "Total threads" %}
+                </td>
+                <td>
+                    {{stats.threads_total}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {% trans "Busy threads" %}
+                </td>
+                <td>
+                    {{stats.threads_busy}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {% trans "Total processed requests" %}
+                </td>
+                <td>
+                    {{stats.requests_processed}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock content %}
