@@ -1,5 +1,5 @@
 uwsgi==2.0.15
-django==1.11.8
+django==1.11.22
 django-registration==2.3
 django-registration-redux==1.9
 django-settings-export==1.2.1
